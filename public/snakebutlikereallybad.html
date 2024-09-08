@@ -96,12 +96,12 @@
     snake.unshift(newHead);  // Add new head to the snake
   }
 
-  // Function to generate random food position
+  // Function to generate random food position within canvas boundaries
   function generateFood() {
-    return {
-      x: Math.floor(Math.random() * (canvas.width / box)) * box,
-      y: Math.floor(Math.random() * (canvas.height / box)) * box
-    };
+    // Ensure food is within the canvas and doesn't go to the very edge
+    const foodX = Math.floor(Math.random() * (canvas.width / box - 1)) * box;
+    const foodY = Math.floor(Math.random() * (canvas.height / box - 1)) * box;
+    return { x: foodX, y: foodY };
   }
 
   // Check for snake's self-collision
