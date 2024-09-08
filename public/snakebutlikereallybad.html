@@ -1,91 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cool Webpage</title>
-    <style>
-      /* Basic Styles */
-      body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        background: linear-gradient(135deg, #ff9a9e 10%, #fad0c4 100%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        color: #333;
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #282c34;
+    }
+    
+    canvas {
+      border: 2px solid #fff;
+      background-color: #000;
+    }
+
+    h1 {
+      color: white;
+      text-align: center;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Snake Game</h1>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const box = 20;  // Size of one snake unit (box)
+    const canvasSize = canvas.width / box;
+
+    let snake = [];
+    snake[0] = { x: 10 * box, y: 10 * box };
+
+    let food = {
+      x: Math.floor(Math.random() * canvasSize) * box,
+      y: Math.floor(Math.random() * canvasSize) * box
+    };
+
+    let score = 0;
+    let direction;
+
+    document.addEventListener("keydown", changeDirection);
+
+    function changeDirection(event) {
+      if (event.keyCode === 37 && direction !== "RIGHT") direction = "LEFT";
+      if (event.keyCode === 38 && direction !== "DOWN") direction = "UP";
+      if (event.keyCode === 39 && direction !== "LEFT") direction = "RIGHT";
+      if (event.keyCode === 40 && direction !== "UP") direction = "DOWN";
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw the snake
+      for (let i = 0; i < snake.length; i++) {
+        ctx.fillStyle = i === 0 ? "#4CAF50" : "#fff";  // Head of the snake is green
+        ctx.fillRect(snake[i].x, snake[i].y, box, box);
       }
 
-      h1 {
-        font-size: 3rem;
-        text-align: center;
-        margin-bottom: 20px;
-        color: white;
+      // Draw the food
+      ctx.fillStyle = "#FF0000"; // Red color for food
+      ctx.fillRect(food.x, food.y, box, box);
+
+      // Move the snake
+      let snakeX = snake[0].x;
+      let snakeY = snake[0].y;
+
+      if (direction === "LEFT") snakeX -= box;
+      if (direction === "UP") snakeY -= box;
+      if (direction === "RIGHT") snakeX += box;
+      if (direction === "DOWN") snakeY += box;
+
+      // Check if snake eats the food
+      if (snakeX === food.x && snakeY === food.y) {
+        score++;
+        food = {
+          x: Math.floor(Math.random() * canvasSize) * box,
+          y: Math.floor(Math.random() * canvasSize) * box
+        };
+      } else {
+        snake.pop();  // Remove the tail if no food is eaten
       }
 
-      .container {
-        text-align: center;
-        background-color: rgba(255, 255, 255, 0.8);
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        width: 70%;
-        max-width: 600px;
+      // Add new head to the snake
+      let newHead = { x: snakeX, y: snakeY };
+
+      // Game over conditions: snake hits wall or itself
+      if (
+        snakeX < 0 ||
+        snakeY < 0 ||
+        snakeX >= canvas.width ||
+        snakeY >= canvas.height ||
+        collision(newHead, snake)
+      ) {
+        clearInterval(game);
+        alert("Game Over! Your score is: " + score);
+        location.reload();  // Reload the page to restart the game
       }
 
-      p {
-        font-size: 1.2rem;
-        margin-bottom: 20px;
+      snake.unshift(newHead);  // Add the new head
+    }
+
+    function collision(head, array) {
+      for (let i = 1; i < array.length; i++) {
+        if (head.x === array[i].x && head.y === array[i].y) {
+          return true;
+        }
       }
+      return false;
+    }
 
-      /* Cool Button Styles */
-      .cool-button {
-        background-color: #6a82fb;
-        color: white;
-        padding: 15px 30px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-size: 1.2rem;
-        transition: all 0.3s ease;
-      }
-
-      .cool-button:hover {
-        background-color: #fc5c7d;
-        transform: scale(1.1);
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-      }
-
-      /* Footer */
-      footer {
-        position: absolute;
-        bottom: 20px;
-        text-align: center;
-        width: 100%;
-        color: white;
-      }
-
-      footer a {
-        color: white;
-        text-decoration: none;
-      }
-
-      footer a:hover {
-        text-decoration: underline;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="container">
-      <h1>Welcome to My Cool Webpage!</h1>
-      <p>This is a simple but cool webpage using HTML and CSS. You can add more features to make it even cooler!</p>
-      <a href="#" class="cool-button">Click Me!</a>
-    </div>
-
-    <footer>
-      Made by <a href="https://github.com/GavinTheGreat19">GavinTheGreat19</a>
-    </footer>
-  </body>
+    let game = setInterval(draw, 100);  // 100 milliseconds refresh rate
+  </script>
+</body>
 </html>
