@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Display</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            background-image: url('background.png'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+        p {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        video {
+            border: 2px solid #333;
+            border-radius: 10px;
+            width: 320px; /* Adjust the width as needed */
+            height: 240px; /* Adjust the height as needed */
+        }
+        canvas {
+            display: none; /* Hide canvas as it will be used to capture the image */
+        }
+        button {
+            margin-top: 10px;
+            font-size: 20px;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p style="text-align: center; font-size: 25px;">You Are Beautiful</p>
+    <p>
+        <video id="webcam" autoplay></video>
+    </p>
+    <p>
+        <button id="capture">Take Picture</button>
+    </p>
+    <p style="text-align: center; font-size: 25px;">You got this!</p>
+    <canvas id="canvas" width="320" height="240"></canvas>
+    <audio id="background-music" loop>
+        <source src="coolmusic.mp3" type="audio/mpeg"> <!-- Replace with your music file -->
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        async function startWebcam() {
+            const video = document.getElementById('webcam');
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+            } catch (error) {
+                console.error('Error accessing webcam:', error);
+            }
+        }
+
+        function captureImage() {
+            const video = document.getElementById('webcam');
+            const canvas = document.getElementById('canvas');
+            const context = canvas.getContext('2d');
+
+            // Draw the video frame to the canvas
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            // Optional: Convert canvas to data URL and log it (for debugging or saving)
+            const dataURL = canvas.toDataURL('image/png');
+            console.log('Captured Image URL:', dataURL);
+        }
+
+        document.getElementById('capture').addEventListener('click', captureImage);
+
+        // Play background music
+        const audio = document.getElementById('background-music');
+        audio.play().catch(error => {
+            console.error('Error playing audio:', error);
+        });
+
+        startWebcam();
+    </script>
+</body>
+</html>
