@@ -23,6 +23,15 @@
             margin: 0;
             padding: 0;
         }
+        .border-text {
+            color: white; /* Text color */
+            font-size: 25px; /* Adjust font size as needed */
+            text-shadow: 
+                1px 1px 0 black,  
+                -1px -1px 0 black,  
+                1px -1px 0 black,
+                -1px 1px 0 black; /* Creates a black border effect */
+        }
         video {
             border: 2px solid #333;
             border-radius: 10px;
@@ -41,14 +50,14 @@
     </style>
 </head>
 <body>
-    <p style="text-align: center; font-size: 25px;">You Are Beautiful</p>
+    <p class="border-text">You Are Beautiful</p>
     <p>
         <video id="webcam" autoplay></video>
     </p>
     <p>
         <button id="capture">Take Picture</button>
     </p>
-    <p style="text-align: center; font-size: 25px;">You got this!</p>
+    <p class="border-text">You got this!</p>
     <canvas id="canvas" width="320" height="240"></canvas>
     <audio id="background-music" loop>
         <source src="coolmusic.mp3" type="audio/mpeg"> <!-- Replace with your music file -->
