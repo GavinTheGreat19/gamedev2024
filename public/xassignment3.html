@@ -27,7 +27,6 @@
             height: 100vh; /* Ensure the body takes up the full viewport height */
             color: #fff; /* Example text color for better contrast */
             font-family: Arial, sans-serif;  
-            font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
         }
@@ -35,21 +34,22 @@
             font-size: 1.5em;
             margin: 10px 0;
         }
-        .direction {
+        .direction, .compass {
             font-size: 2em;
             font-weight: bold;
         }
     </style>
 </head>
 <body>
-                <audio id="background-music" src="stupidmusic.mp3" autoplay loop>
+    <audio id="background-music" src="stupidmusic.mp3" autoplay loop>
         Your browser does not support the audio element.
-                </audio>
-    <h1>Accelerometer Data</h1>
+    </audio>
+    <h1>Jolly Accelerometer Data</h1>
     <div class="data">Santa (rotation around z-axis): <span id="alpha">0</span>°</div>
     <div class="data">Reindeer (rotation around x-axis): <span id="beta">0</span>°</div>
     <div class="data">Grinch (rotation around y-axis): <span id="gamma">0</span>°</div>
     <div class="direction" id="direction">-</div>
+    <div class="compass" id="compass">Compass: -</div>
 
     <script>
         function handleOrientation(event) {
@@ -64,14 +64,27 @@
 
             // Determine the direction based on beta and gamma values
             let direction = 'Centered';
-
             if (Math.abs(beta) > 30) {
                 direction = beta > 0 ? 'Tilted Down' : 'Tilted Up';
             } else if (Math.abs(gamma) > 30) {
                 direction = gamma > 0 ? 'Tilted Right' : 'Tilted Left';
             }
-
             document.getElementById('direction').textContent = direction;
+
+            // Determine the compass direction based on alpha value
+            const compassDirection = getCompassDirection(alpha);
+            document.getElementById('compass').textContent = `Compass: ${compassDirection}`;
+        }
+
+        function getCompassDirection(alpha) {
+            // Normalize alpha to [0, 360) range
+            let heading = alpha % 360;
+            if (heading < 0) heading += 360;
+
+            // Cardinal directions
+            const directions = ['North', 'North-East', 'East', 'South-East', 'South', 'South-West', 'West', 'North-West'];
+            const index = Math.round(heading / 45) % 8;
+            return directions[index];
         }
 
         // Check if the DeviceOrientationEvent is supported
