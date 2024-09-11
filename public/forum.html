@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Forum</title>
+    <style>
+        body {
+            font-family: "Comic Sans MS", "Comic Sans", sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .forum-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .post-form {
+            margin-bottom: 30px;
+        }
+        .post-form input[type="text"], .post-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .post-form input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .post {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .post h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .post p {
+            margin: 10px 0;
+        }
+        .post-time {
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="forum-container">
+        <h1>Gavin Online Forum</h1>
+
+        <!-- Post Form -->
+        <div class="post-form">
+            <h2>Create a New Post</h2>
+            <form id="forumForm">
+                <input type="text" id="username" placeholder="Your name" required>
+                <textarea id="postContent" placeholder="Write your post here..." rows="5" required></textarea>
+                <input type="submit" value="Submit Post">
+            </form>
+        </div>
+
+        <!-- Display Posts -->
+        <div id="postsContainer">
+            <h2>Recent Posts</h2>
+            <!-- Posts will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        // Function to handle form submission
+        document.getElementById('forumForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+            
+            // Get the user input
+            const username = document.getElementById('username').value;
+            const postContent = document.getElementById('postContent').value;
+
+            // Get current date and time for the post
+            const postTime = new Date().toLocaleString();
+
+            // Create a new post element
+            const post = document.createElement('div');
+            post.className = 'post';
+            post.innerHTML = `
+                <h3>${username}</h3>
+                <p>${postContent}</p>
+                <div class="post-time">Posted on: ${postTime}</div>
+            `;
+
+            // Add the new post to the top of the posts container
+            const postsContainer = document.getElementById('postsContainer');
+            postsContainer.insertBefore(post, postsContainer.firstChild);
+
+            // Clear the form
+            document.getElementById('forumForm').reset();
+        });
+    </script>
+
+</body>
+</html>
