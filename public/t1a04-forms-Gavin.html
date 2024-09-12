@@ -2,6 +2,7 @@
   <title>Gavin Online Form</title>
   <body>
     <h1>Welcome! Please Input Information for the presidential election of South Canada!</h1>
+    <P>----------</P>
     <form action="/submit method="post">
       <label for="username">Input Full Legal Name:</label>
       <input type="text" id="username" name="username">
@@ -12,12 +13,22 @@
       <input type="password" id="password" name="password">
     </form>
     
+    <form action="/submit method="post">
       <label for="location">Input Citizen Residential Housing Code</label>
       <select id="location" name="country">
         <option value="gilead">Rebulic State of Gilead [RSG]</option>
         <option value="oaklahoma">Oaklahoma [OAK]</option>
-        <option value="canada">Canada [CAN]</option>
+        <option value="canada">Northen Canada [CAN]</option>
         <option value="nowhere">Currently Homeless [NFA]</option>
     </form>
+
+     <p><b>Election Quiz:</b></p>
+    <p>----------</p>
+
+      <form action="/submit method="post">
+        <label for="quiz one">Which one of these groups do you resonate the most?</label>
+        
+      </form>
+        
   </body>
 </html>
