@@ -8,13 +8,22 @@
       <input type="text" id="username" name="username">
     </form>
 
+    <form action="/submit method="post>
+      <label>Input Gender:</label>
+      <p><label><input type="radio" name="gender" value="male"> Male</label></p>
+      <p><label><input type="radio" name="gender" value="female"> Female</label></p>
+      <p><label><input type="radio" name="gender" value="other"> Other</label></p>
+      <p><label><input type="radio" name="gender" value="robot"> Non-Human Sentient Robot</label></p>
+    </form>
+
+
     <form action="/submit" method="post">
-      <label for="password">Input Six-Digit Citizen ID Number</label>
+      <label for="password">Input Six-Digit Citizen ID Number:</label>
       <input type="password" id="password" name="password">
     </form>
     
     <form action="/submit method="post">
-      <label for="location">Input Citizen Residential Housing Code</label>
+      <label for="location">Input Citizen Residential Housing Code:</label>
       <select id="location" name="country">
         <option value="gilead">Rebulic State of Gilead [RSG]</option>
         <option value="oaklahoma">Oaklahoma [OAK]</option>
@@ -23,7 +32,7 @@
       </select>
     </form>
 
-     <p><b>Election Quiz:</b></p>
+     <h1>Election Quiz:</h1>
     <p>--------------------------------------------------</p>
 
       <form action="/submit method="post">
