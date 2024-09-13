@@ -1,86 +1,102 @@
-<html>
-  <title>Gavin Online Form</title>
-    <head>
-      <style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gavin Online Form</title>
+    <style>
         body {
-            background-image: url('americanbackground');
+            background-image: url('americanbackground.png'); /* Ensure this path is correct */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            margin: 50px;
         }
-        </style>
-    </head>
-  <body style= "margin: 50px;">
-    <h1>Welcome! Please Input Information for the presidential election of South Canada!</h1>
+    </style>
+</head>
+<body>
+    <h1>Welcome! Please Input Information for the Presidential Election of South Canada!</h1>
     <p>--------------------------------------------------</p>
-    <form action="/submit method="post">
-      <label for="username">Input Full Legal Name:</label>
-      <input type="text" id="username" name="username">
-    </form>
-
-    <br>
-
-    <form action="/submit method="post>
-      <label>Input Gender:</label>
-      <p><label><input type="radio" name="gender" value="male"> Male</label></p>
-      <p><label><input type="radio" name="gender" value="female"> Female</label></p>
-      <p><label><input type="radio" name="gender" value="other"> Other</label></p>
-      <p><label><input type="radio" name="gender" value="robot"> Non-Human Sentient Robot</label></p>
-    </form>
-
-    <br>
-
+    
     <form action="/submit" method="post">
-      <label for="password">Input Six-Digit Citizen ID Number:</label>
-      <input type="password" id="password" name="password">
+        <label for="username">Input Full Legal Name:</label>
+        <input type="text" id="username" name="username">
+        <br><br>
+        <input type="submit" value="Submit">
     </form>
-
+    
     <br>
     
-    <form action="/submit method="post">
-      <label for="location">Input Citizen Residential Housing Code:</label>
-      <select id="location" name="country">
-        <option value="invalid">Chooose an option</option>
-        <option value="gilead">Rebulic State of Gilead [RSG]</option>
-        <option value="oaklahoma">Oaklahoma [OAK]</option>
-        <option value="canada">Northen Canada [CAN]</option>
-        <option value="nowhere">Currently Homeless [NFA]</option>
-      </select>
-    </form>
-
-    <br>
-
-     <h1>Election Quiz:</h1>
-    <p>--------------------------------------------------</p>
-
-      <form action="/submit method="post">
-        <label for="quiz one">Which one of these groups do you resonate with?</label>
-        <p><label><input type="checkbox" name="groups" value="communists">"Communists"</label></p>
-        <p><label><input type="checkbox" name="groups" value="RED">Reliable Excavation Demolition</label></p>
-        <p><label><input type="checkbox" name="groups" value="BLU">Builders League United</label></p>
-        <p><label><input type="checkbox" name="groups" value="LGBTQ">LGBTQ</label></p>
-        <p><label><input type="checkbox" name="groups" value="commies2">"Socialists"</label>
-        <p><label><input type="checkbox" name="groups" value="Democracy">Capitilist Democracy Freedom Party</label></p>
-      </form>
-
-      <br>
-
-      <form>
-        <label for="quiz two">Which canidate will you be voting for?</label>
-        <p><label><input type="radio" name="canidate" value="trump">Old man wearing a red suit</label></p>
-        <p><label><input type="radio" name="canidate" value="biden">Old man wearing a blue suit</label></p>
-        <p><label><input type="radio" name="canidate" value="kanye">Kanye West</label></p>
-        <p><label><input type="radio" name="canidate" value="lady">Young lady wearing a purple suit</label></p>
-      </form>
-        <label for="message">Why are you choosing this canidate?:</label>
-        <p><textarea id="message" name="message" rows="4" cols="50"></textarea></p>
-
+    <form action="/submit" method="post">
+        <label>Input Gender:</label>
+        <p><label><input type="radio" name="gender" value="male"> Male</label></p>
+        <p><label><input type="radio" name="gender" value="female"> Female</label></p>
+        <p><label><input type="radio" name="gender" value="other"> Other</label></p>
+        <p><label><input type="radio" name="gender" value="robot"> Non-Human Sentient Robot</label></p>
+        <br>
         <input type="submit" value="Submit">
-
-     <audio autoplay loop>
+    </form>
+    
+    <br>
+    
+    <form action="/submit" method="post">
+        <label for="password">Input Six-Digit Citizen ID Number:</label>
+        <input type="password" id="password" name="password">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+    
+    <br>
+    
+    <form action="/submit" method="post">
+        <label for="location">Input Citizen Residential Housing Code:</label>
+        <select id="location" name="location"> <!-- Fixed name to match the select ID -->
+            <option value="invalid">Choose an option</option>
+            <option value="gilead">Republic State of Gilead [RSG]</option>
+            <option value="oaklahoma">Oaklahoma [OAK]</option>
+            <option value="canada">Northern Canada [CAN]</option>
+            <option value="nowhere">Currently Homeless [NFA]</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+    
+    <br>
+    
+    <h1>Election Quiz:</h1>
+    <p>--------------------------------------------------</p>
+    
+    <form action="/submit" method="post">
+        <label for="quiz-one">Which one of these groups do you resonate with?</label>
+        <p><label><input type="checkbox" name="groups" value="communists"> Communists</label></p>
+        <p><label><input type="checkbox" name="groups" value="RED"> Reliable Excavation Demolition</label></p>
+        <p><label><input type="checkbox" name="groups" value="BLU"> Builders League United</label></p>
+        <p><label><input type="checkbox" name="groups" value="LGBTQ"> LGBTQ</label></p>
+        <p><label><input type="checkbox" name="groups" value="commies2"> Socialists</label></p>
+        <p><label><input type="checkbox" name="groups" value="Democracy"> Capitalist Democracy Freedom Party</label></p>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    
+    <br>
+    
+    <form action="/submit" method="post">
+        <label for="quiz-two">Which candidate will you be voting for?</label>
+        <p><label><input type="radio" name="candidate" value="trump"> Old man wearing a red suit</label></p>
+        <p><label><input type="radio" name="candidate" value="biden"> Old man wearing a blue suit</label></p>
+        <p><label><input type="radio" name="candidate" value="kanye"> Kanye West</label></p>
+        <p><label><input type="radio" name="candidate" value="lady"> Young lady wearing a purple suit</label></p>
+        <br>
+        <label for="message">Why are you choosing this candidate?:</label>
+        <p><textarea id="message" name="message" rows="4" cols="50"></textarea></p>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    
+    <audio autoplay loop>
         <source src="merica.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
     
-  </body>
+</body>
 </html>
