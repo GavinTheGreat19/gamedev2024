@@ -26,7 +26,7 @@
     <button onclick="gavinBLUEMODE()">Activate Blue Flavor!</button>
 	<br><br><br>
     <p><label id="Text" for="name">Please Enter Your Name: </label></p>
- 	<input type=text id="name" placeholder="Fred">
+ 	<input type=text id="name" placeholder="Name goes here">
 	<button onclick="donamething()">Confirm Name</button> <br>
   <p id="hello" class="white-text"></p>
 
@@ -36,8 +36,13 @@
 	 var name = nameInput.value;
 	 var helloDiv = document.getElementById('hello');
 
+	
+	if (name.trim() !== '')  {
 	 helloDiv.innerText = 'Hello ' + name + ', I hope you are doing well!';
-	}
+	} else { helloDiv.innerText = 'Error, no name specified. Please enter name';
+	       }
+	   }
+	
     </script>
 							
 
