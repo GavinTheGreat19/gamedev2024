@@ -25,10 +25,10 @@
     <button onclick="gavinEVILMODE()">Activate EVIL MODE!</button>
     <button onclick="gavinBLUEMODE()">Activate Blue Flavor!</button>
 	<br><br><br>
-    <p><label id="text" for="name">Please Enter Your Name: </label></p>
+    <p><label id="Text" for="name">Please Enter Your Name: </label></p>
  	<input type=text id="name" placeholder="Fred">
 	<button onclick="donamething()">Confirm Name</button> <br>
-  <p><div id="Text" id="hello"></div></p>
+  <p id="hello" class="white-text"></p>
 
    <script>
 	function donamething() {
@@ -36,7 +36,7 @@
 	 var name = nameInput.value;
 	 var helloDiv = document.getElementById('hello');
 
-	 helloDiv.textContent = 'Hello ' + name + ', I hope you are doing well!';
+	 helloDiv.innerText = 'Hello ' + name + ', I hope you are doing well!';
 	}
     </script>
 							
