@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style id="BackGround">
+        body {
+	  border: 10px, black;
+	  height: 100%;
+          padding: 60px;
+          background: linear-gradient(to bottom, Grey, Black);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-color: black;
+        }
 
+        p {
+        font-family: "Comic Sans", "Comic Sans MS", "Comic Relief";
+        color: White;
+        font-size: 25px;
+        }
+    </style>
+
+
+    <body id="BackGround">
+    <p id="Text">Welcome to this really cool website</p>
+    <button onclick="gavinEVILMODE()">Activate Royale Mode.</button>
+    <button onclick="gavinBLUEMODE()">Activate Lime Flavor.</button>
+	<br><br><br>
+    <p><label id="Text" for="name">Please Enter Your Name: </label></p>
+ 	<input type=text id="name" placeholder="Name goes here">
+	<button onclick="donamething()">Confirm Name</button> <br>
+  <p id="hello" class="white-text"></p>
+
+   <script>
+	function donamething() {
+	 var nameInput = document.getElementById('name');
+	 var name = nameInput.value;
+	 var helloDiv = document.getElementById('hello');
+
+	
+	if (name.trim() !== '')  {
+	 helloDiv.innerText = 'Hello ' + name + ', I hope you are doing well!';
+	} else { helloDiv.innerText = 'Error, no name specified. Please enter name';
+	       }
+	   }
+	
+    </script>
+							
+
+
+ 
+    
+    <script>
+      function gavinEVILMODE() {
+        let x = document.getElementById("BackGround")
+        document.body.style = "border: 10px, black; height: 100%; padding: 60px; background: linear-gradient(to bottom, Purple, Black); background-size: cover; background-repeat: no-repeat; background-color: black;";
+      }
+    </script>
+
+	    <!--  ^ Turns gradient Red when button clicked, V turns gradient Blue when button clicked. There is no way to return to grey... -->
+
+    <script>
+      function gavinBLUEMODE() {
+        let x = document.getElementById("BackGround")
+        document.body.style = "border: 10px, black; height: 100%; padding: 60px; background: linear-gradient(to bottom, Green, Black); background-size: cover; background-repeat: no-repeat; background-color: black;";
+        let y = document.getElementById("Text")
+        y.style.fontFamily = "'Comic Sans', 'Comic Sans MS', 'Comic Relief'";
+      }
+    </script>
+
+	    <!-- This code fucking sucks -->
+    
+    </body>
+  </head>
+</html>
