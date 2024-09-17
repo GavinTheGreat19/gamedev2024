@@ -24,6 +24,25 @@
     <p id="Text">Welcome to this really cool website</p>
     <button onclick="gavinEVILMODE()">Activate EVIL MODE!</button>
     <button onclick="gavinBLUEMODE()">Activate Blue Flavor!</button>
+	<br><br><br>
+    <label for="name">Please Enter Your Name: </label>
+ 	<input type=text id="name" placeholder="Fred">
+	<button onclick="donamething()">Confirm Name</button>
+  <div id="hello"></div>
+
+   <script>
+	function donamething() {
+	 var nameInput = document.getElementById('name');
+	 var name = nameInput.value;
+	 var helloDiv = document.getElementById('hello');
+
+	 helloDiv.textContent = 'Hello ' + name + ', I hope you are doing well!';
+	}
+    </script>
+							
+
+
+ 
     
     <script>
       function gavinEVILMODE() {
@@ -34,6 +53,8 @@
       }
     </script>
 
+	    <!--  ^ Turns gradient Red when button clicked, V turns gradient Blue when button clicked. There is no way to return to grey... -->
+
     <script>
       function gavinBLUEMODE() {
         let x = document.getElementById("BackGround")
@@ -43,6 +64,7 @@
       }
     </script>
 
+	    <!-- This code fucking sucks -->
     
     </body>
   </head>
