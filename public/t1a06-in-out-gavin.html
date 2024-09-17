@@ -1,8 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      
+    <style id="BackGround">
+        body {
+	  border: 10px, black;
+	  height: 100%;
+          padding: 60px;
+          background: linear-gradient(to bottom, Grey, Black);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-color: black;
+        }
+
+        p {
+        font-family: "Comic Sans", "Comic Sans MS", "Comic Relief";
+        color: White;
+        font-size: 25px;
+        }
     </style>
+
+
+    <body id="BackGround">
+    <p id="Text">Welcome to this really cool website</p>
+    <button onclick="gavinEVILMODE()">Activate EVIL MODE!</button>
+    <button onclick="gavinBLUEMODE()">Activate Blue Flavor!</button>
+    
+    <script>
+      function gavinEVILMODE() {
+        let x = document.getElementById("BackGround")
+        document.body.style = "border: 10px, black; height: 100%; padding: 60px; background: linear-gradient(to bottom, Red, Black); background-size: cover; background-repeat: no-repeat; background-color: black;";
+        let y = document.getElementById("Text")
+        y.style.fontFamily = "Times New Roman";
+      }
+    </script>
+
+    <script>
+      function gavinBLUEMODE() {
+        let x = document.getElementByID("Background")
+        document.body.style = "border: 10px, black; height: 100%; padding: 60px; background: linear-gradient(to bottom, Blue, Black); background-size: cover; background-repeat: no-repeat; background-color: black;";
+        let y = document.getElementById("Text")
+        y.style.fontFamily = "Comic Sans", "Comic Sans MS", "Comic Relief";
+    </script>
+
+    
+    </body>
   </head>
 </html>
