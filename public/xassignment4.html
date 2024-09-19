@@ -45,5 +45,42 @@ Step one : Generate Code with an LLM of your choosing. <br><br> So, as you can s
 
 	  <p style= "text-align: center;">In this example, I requested Co-Pilot to generate code that would move a box, whilst changing it's colour. I have included a download link below for my blender file, if you wish to see the code and the project.</p>
 	  <p><a href="aigenanimation.blend" download>Click here to download the file and check it out for yourself</a></p>
+	  <pre>
+		  <code>
+import bpy
+import math
+
+# Create a new material
+mat = bpy.data.materials.new(name="RainbowMaterial")
+mat.use_nodes = True
+nodes = mat.node_tree.nodes
+bsdf = nodes.get("Principled BSDF")
+
+# Function to update the color of the material
+def update_color(frame, total_frames):
+    hue = (frame / total_frames) % 1.0
+    color = [math.sin(hue * 2 * math.pi) * 0.5 + 0.5, math.sin((hue + 1/3) * 2 * math.pi) * 0.5 + 0.5, math.sin((hue + 2/3) * 2 * math.pi) * 0.5 + 0.5, 1]
+    bsdf.inputs['Base Color'].default_value = color
+
+# Function to animate the object
+def animate_object(obj, total_frames):
+    for frame in range(total_frames):
+        bpy.context.scene.frame_set(frame)
+        obj.location.x -= 0.1  # Move the object to the left
+        update_color(frame, total_frames)
+        obj.keyframe_insert(data_path="location", index=-1)
+        bsdf.inputs['Base Color'].keyframe_insert(data_path="default_value", frame=frame)
+
+# Create a block
+bpy.ops.mesh.primitive_cube_add(location=(0, 0, 0))
+block = bpy.context.object
+block.data.materials.append(mat)
+
+# Animate the block
+total_frames = 100
+animate_object(block, total_frames)
+
+		  </code>
+	  </pre>
   </body>
 </html>
