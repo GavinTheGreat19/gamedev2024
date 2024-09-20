@@ -1,45 +1,62 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    
+     <style id="BackGround">
+        body {
+	  border: 10px, black;
+	  height: 100%;
+          padding: 100px;
+          background: linear-gradient(to bottom, purple, Black);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-color: black;
+          color: White;
+        }
+
+        p {
+        font-family: sans-serif;
+        color: White;
+        font-size: 25px;
+        }
+    </style>
+    <title>NASA CALCULATOR</title>
   </head>
   <body>
-    <h1 style="text-align: center">WELCOME TO HIGH POWER NASA CALCULATOR!!!!</h1>
+    <h1 style="text-align: center"><i>Welcome, to the N.A.S.A. High Powered Calculator</i></h1>
+    <p>Before you use the high power calculator, here is some back story:<br>This calculator is an identical replica of the special calculator developed by <b>Bob Ebeling</b> specifically for the 1986 Challanger mission. This calculator was used for all parts
+    of preperation, such as the engineering, trajectory, and launch times. This version of the calculator is limited to only addition, however, other versions could do more advanced mathmatical inputs, such as subtraction.</p>
     <br>
-    <table style="border: 2px solid black;">
-      <tr>
-        <td>NASA CALCULATOR</td>
-      </tr>
-      <tr>
-        <td>-------</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>C</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-        <td>+</td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td>8</td>
-        <td>9</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td>@</td>
-        <td>$</td>
-        <td>*</td>
-        <td>%</td>
-      </tr>
+    <p>Now that you have read up on this wonderful calculator's history, you are prepared to use it!</p>
+    <h2><i>Please input two numbers:</i></h2>
+    <p>Please input your first number: <input type=text id="input01" value="1"></p>
+    <p>Please input your second number: <input type=text id="input02" value="1"></p>
+    <br>
+    <input type=button value="Calculate!" onclick="{
+      total = document.getElementById('input01').value + document.getElementById('input02').value
+        document.getElementById('Div01').innerHTML = 'Answer = ' + total
+    }">
+<br>
+    <p id="Div01">---</p>
+<br>
+<br>
+<br>
+ <h1 style="text-align: center"><i>Welcome, to the N.A.S.A. High Powered Calculator Version 2</i></h1>
+    <p>Before you use the high power calculator, here is some back story:<br>This calculator is an identical replica of the special calculator developed by <b>REPLACEMENT NAME HERE</b> after the 1986 Challanger mission. This calculator was used for all missions.
+      after the 1986 Challanger Mission, until 1988 when all HTML based calculators were replaced.
+      This version of the calculator is limited to only addition, however, other versions could do more advanced mathmatical inputs, such as subtraction.</p>
+          <br>
+    <p>Now that you have read up on this wonderful calculator's history, you are prepared to use it!</p>
+    <h2><i>Please input two numbers:</i></h2>
+    <p>Please input your first number: <input type=text id="input03" value="3"></p>
+    <p>Please input your second number: <input type=text id="input04" value="2"></p>
+    <br>
+    <input type=button value="Calculate!" onclick="{
+      total = parseInt(document.getElementById('input03').value) + parseInt(document.getElementById('input04').value)
+        document.getElementById('Div02').innerHTML = 'Answer = ' + total
+    }">
+    <br>
+    <p id="Div02">---</p>
 
-      
-    </table>
   </body>
   
 </html>
