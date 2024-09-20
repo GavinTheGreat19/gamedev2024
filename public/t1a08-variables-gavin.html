@@ -42,18 +42,29 @@
 <br>
  <h1 style="text-align: center"><i>Welcome, to the N.A.S.A. High Powered Calculator Version 2</i></h1>
     <p>Before you use the high power calculator, here is some back story:<br>This calculator is an identical replica of the special calculator developed by <b>REPLACEMENT NAME HERE</b> after the 1986 Challanger mission. This calculator was used for all missions.
-      after the 1986 Challanger Mission, until 1988 when all HTML based calculators were replaced.
-      This version of the calculator is limited to only addition, however, other versions could do more advanced mathmatical inputs, such as subtraction.</p>
+      after the 1986 Challanger Mission, until 1988 when all HTML based calculators were replaced.</p>
           <br>
     <p>Now that you have read up on this wonderful calculator's history, you are prepared to use it!</p>
     <h2><i>Please input two numbers:</i></h2>
     <p>Please input your first number: <input type=text id="input03" value="3"></p>
     <p>Please input your second number: <input type=text id="input04" value="2"></p>
     <br>
-    <input type=button value="Calculate!" onclick="{
+    <input type=button value="Calculate Addition!" onclick="{
       total = parseInt(document.getElementById('input03').value) + parseInt(document.getElementById('input04').value)
         document.getElementById('Div02').innerHTML = 'Answer = ' + total
     }">
+	  <input type=button value="Calculate Subtraction!" onclick="{
+	  total = parseInt(document.getElementById('input03').value) - parseInt(document.getElementById('input04').value)
+        document.getElementById('Div02').innerHTML = 'Answer = ' + total
+    }">
+	  	  <input type=button value="Calculate Multiplication!" onclick="{
+	  total = parseInt(document.getElementById('input03').value) * parseInt(document.getElementById('input04').value)
+        document.getElementById('Div02').innerHTML = 'Answer = ' + total
+    }">
+	    	  <input type=button value="Calculate Division!" onclick="{
+	document.getElementById('Div02').innerHTML = 'Please contact your NASA Supervisor to pay $5.99 USD to Unlock Division'
+    }">
+	  
     <br>
     <p id="Div02">---</p>
 
