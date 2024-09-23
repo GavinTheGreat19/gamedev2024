@@ -1,1 +1,38 @@
-I slept for like 14 hours last night and didn't get anything done and now I feel misreable.
+<html>
+  <head>
+    <style>
+         body {
+            padding: 128px;
+            background-image: url('viewfromhouse.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+	          text-shadow: 1px 1px 15px purple;
+        }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center;">Decisions!</h1>
+    <br>
+    <p>Welcome to another Really Cool Gavin Website! This one has buttons and math, don't you love buttons and math?!?!?!</p>
+    <br>
+    <p>Input a word!</p>
+    <input type="text" id="word" value="cheese">
+    <br>
+    <p>Input a number!</p>
+    <input type="number" id="numb" name="Number!" value="2">
+    <br><br>
+    <p id="output">When Button is Press, Thing go here!</p>
+    <br><br>
+
+    <input type="button" value="Check 4 Cheese" onclick="{
+      let anX = document.getElementById('word').innerHTML
+      if (anX == 'cheese') {
+        document.getElementById("output").innerHTML = 'Cheesy text man!'
+    } else {
+        document.getElementById("output").innerHTML = 'Cowabummer dude, no cheese.'
+    }
+    }">
+    
+  </body>
+</html>
