@@ -12,7 +12,7 @@
         }
     </style>
   </head>
-  <body>
+  <body id="body">
     <h1 style="text-align: center;">Decisions!</h1>
     <br>
     <p>Welcome to another Really Cool Gavin Website! This one has buttons and math, don't you love buttons and math?!?!?!</p>
@@ -28,7 +28,7 @@
 
 <input type="button" value="Check for Cheese" onclick="{
   let anX = document.getElementById('word').value;
-  if (anX == 'cheese') {
+  if (anX == 'cheese' || anX == 'Cheese') {
     document.getElementById('output').innerHTML = 'Cheesy text man!';
   } else {
     document.getElementById('output').innerHTML = 'Cowabummer dude, no cheese.';
@@ -45,6 +45,61 @@
     document.getElementById('output').innerHTML = 'tiny number dude';
   }
 }">
-    
+	  <br>
+<input type="button" value="Check for equal to twelve" onclick="{
+  let anX = parseInt(document.getElementById('numb').value);
+	console.log(typeof(anX));
+	console.log(anX);
+  if (anX == 12) {
+    document.getElementById('output').innerHTML = 'that is definetly twelve dude';
+  } else {
+    document.getElementById('output').innerHTML = 'that is not twelve man.';
+  }
+}">
+	<br>
+<input type="button" value="Check for lack of 'Fred'" onclick="{
+  let anX = document.getElementById('word').value;
+  if (anX == 'Fred' || anX == 'fred') {
+    document.getElementById('output').innerHTML = 'FRED DETECTED!';
+  } else {
+    document.getElementById('output').innerHTML = 'Fred is certainly not here';
+  }
+}">
+	  <br>
+<input type="button" value="guess a number between one and a hundred" onclick="{
+  let anX = parseInt(document.getElementById('numb').value);
+	console.log(typeof(anX));
+	console.log(anX);
+  if (anX == 69) {
+    document.getElementById('output').innerHTML = 'nice. You did it!';
+  } else if (anX > 69) {
+    document.getElementById('output').innerHTML = 'too big dawg.';
+  } else {
+	document.getElementById('output').innerHTML ='too little dawg.';
+  }
+}">
+	  <br>
+<input type="button" value="Check for less than twelve" onclick="{
+  let anX = parseInt(document.getElementById('numb').value);
+	console.log(typeof(anX));
+	console.log(anX);
+  if (anX <= 12) {
+    document.getElementById('output').innerHTML = 'that is a good, large number';
+  } else {
+    document.getElementById('output').innerHTML = 'tiny number';
+  }
+}">
+	  <br>
+    <input type="button" value="dog" onclick="{
+        document.getElementById('output').innerHTML = '<img src=sunkist.png>';
+        let sound = new Audio('dogsound.mp3');
+        sound.play();
+    }">
+	  <br>
+    <input type="button" value="induce heart attack" onclick="{
+        document.body.style.backgroundImage = 'url(scary.jpg)';
+        let sound = new Audio('death.mp3');
+        sound.play();
+    }">
   </body>
 </html>
