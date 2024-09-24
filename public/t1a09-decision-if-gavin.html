@@ -7,7 +7,8 @@
             background-size: cover;
             background-position: center;
             color: white;
-	          text-shadow: 1px 1px 15px purple;
+		text-shadow: 1px 1px 15px purple;
+	 font-size: 25px;
         }
     </style>
   </head>
@@ -22,17 +23,28 @@
     <p>Input a number!</p>
     <input type="number" id="numb" name="Number!" value="2">
     <br><br>
-    <p id="output">When Button is Press, Thing go here!</p>
+    <p id="output" style="font-size: 30px;">When Button is Press, Thing go here!</p>
     <br><br>
 
-    <input type="button" value="Check 4 Cheese" onclick="{
-      let anX = document.getElementById('word').innerHTML
-      if (anX == 'cheese') {
-        document.getElementById("output").innerHTML = 'Cheesy text man!'
-    } else {
-        document.getElementById("output").innerHTML = 'Cowabummer dude, no cheese.'
-    }
-    }">
+<input type="button" value="Check for Cheese" onclick="{
+  let anX = document.getElementById('word').value;
+  if (anX == 'cheese') {
+    document.getElementById('output').innerHTML = 'Cheesy text man!';
+  } else {
+    document.getElementById('output').innerHTML = 'Cowabummer dude, no cheese.';
+  }
+}">
+	  <br>
+<input type="button" value="Check for bigger than twelve" onclick="{
+  let anX = parseInt(document.getElementById('numb').value);
+	console.log(typeof(anX));
+	console.log(anX);
+  if (anX >= 12) {
+    document.getElementById('output').innerHTML = 'that is one big Number dawg';
+  } else {
+    document.getElementById('output').innerHTML = 'tiny number dude';
+  }
+}">
     
   </body>
 </html>
