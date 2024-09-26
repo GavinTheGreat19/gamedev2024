@@ -20,13 +20,37 @@
     <br>
     <a href="https://www.w3schools.com/js/js_loop_for.asp">Here's a website with people smarter than I am</a>
     <br>
-    <p>pwease input a number for the maximum number of loops >w< :3</p>
+    <p>pwease input a number for the maximum number of loops  :3 Varriable "M" </p>
     <input  id="MaxLoopInput" type=number value="6"><br><br>
-    <p>prease input a number for someting else :</p>
-    <input id="OtherLoopInput" type=number value="3"><br><br>
+    <p>prease input a number for varriable "L" </p>
+    <input id="OtherLoopInput" type=number value="1"><br><br>
     <p id="output">-OUTPUTGOESHERE-</p>
     <br>
-    <button type="button" onclick="window.location.href='https://www.example.com';">Click :  For Loop</button>
+    <button type="button" value="While L < M "onclick="{
+      let Max = parseInt(document.getElementById('MaxLoopInput').value)
+      let Low = parseInt(document.getElementById('OtherLoopInput').value)
+      let out = ''
+
+      for (;Low < Max; Low++){
+        console.log(Low);
+        out += 'Current Loop : ' + Low + '<br>';
+      }
+
+      document.getElementById('output').innerHTML = out
+    }">While L < M</button>
+      <br><br>
+          <button type="button" value="While L < M "onclick="{
+      let Max = parseInt(document.getElementById('MaxLoopInput').value)
+      let Low = parseInt(document.getElementById('OtherLoopInput').value)
+      let out = ''
+
+      for (;Low < Max; Low *= 2){
+        console.log(Low);
+        out += 'Current Loop : ' + Low + '<br>';
+      }
+
+      document.getElementById('output').innerHTML = out
+    }">While L*2 < M</button>
 
     
     
