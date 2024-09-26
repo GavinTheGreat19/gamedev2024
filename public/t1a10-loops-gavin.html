@@ -39,21 +39,22 @@
       document.getElementById('output').innerHTML = out
     }">While L < M</button>
       <br><br>
-          <button type="button" value="While L < M "onclick="{
-      let Max = parseInt(document.getElementById('MaxLoopInput').value)
-      let Low = parseInt(document.getElementById('OtherLoopInput').value)
-      let out = ''
+      <button type="button" onclick="{
+  let Max = parseInt(document.getElementById('MaxLoopInput').value);
+  let Low = parseInt(document.getElementById('OtherLoopInput').value);
+  let out = '';
 
-      for (;Low < Max; Low *= 2){
-        console.log(Low);
-        out += 'Current Loop : ' + Low + '<br>';
-      }
-
-      document.getElementById('output').innerHTML = out
-    }">While L*2 < M</button>
-
+  if (Low > 0) {
+    for (; Low < Max; Low *= 2) {
+      console.log(Low);
+      out += 'Current Loop: ' + Low + '<br>';
+    }
     
-    
+    document.getElementById('output').innerHTML = out;
+  } else {
+    document.getElementById('output').innerHTML = 'Error: entered number is negative or zero. Please change to a positive number to run the calculation.';
+  }
+}">While L * 2 < M</button>
     
   </body>
 </html>
