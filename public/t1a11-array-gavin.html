@@ -21,11 +21,23 @@
     <h1><b><i>t1a11 - Array</i></b></h1>
     <br>
     <script>
-      let myMax = 6;
+      let myMax = 10;
       let myArray = new Array(myMax);
     </script>
-    
-    <p>In the put</p>
-    <input type=button value = "SetArray">
+    <p>In the put</p><br>
+
+<input type=text id="input" value="fred">
+	<br>  
+    <input type=button value = "Add to Array" onclick="{
+	    myArray[0] = "Gavin"
+	    document.getElementById('Thing').innerHTML = 'Array Set';
+    }">
+	<input type=button value="Show Array" onclick="{
+		document.getElementById('Thing').innerHTML = ''
+		for (aLoop=0; aLoop < 3; aLoop++){
+			document.getElementById('Thing').innerHTML += 'myArray[' + aLoop =+ '] = ' + myArray[aLoop] + '<br>
+		}
+	}"><br>
+	  <p id="Thing">gom</p>
   </body>
 </html>
