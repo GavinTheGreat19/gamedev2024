@@ -5,31 +5,26 @@
 	  border: 10px, black;
 	  height: 100%;
           padding: 60px;
-          background: linear-gradient(to bottom, Navy, Blue);
+          background: linear-gradient(to bottom, Olive, Orange);
           background-size: cover;
           background-repeat: no-repeat;
-          background-color: blue;
+          background-color: Orange;
 	  color: White;
-	  font-size: 25px;
-	  font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief'
+	  font-size: 15px;
         }
     </style>
   </head>
   <body>
     <h1><b><i>t1a11 - Array</i></b></h1>
+	  	    <script>
+		  const eggs = ["Brown", "White", "Green", "Cracked", "Boiled", "Scrambled", "Rotten"];
+			    document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("listofeggs").innerText = eggs.join(" Egg\n") + " Egg";
+        });
+		    </script>
     <br>
-<p>Here is a list of every possibe egg type:</p>
-	 <p id="listofeggs"></p>
     <p>Press the button below to display a random type of Egg!!</p>
 	  <br>
-	  <p>Egg Output:</p>
-	  <p id="eggoutput">---</p>
-	  <script>
-		  const eggs = ["Brown", "White", "Rotten", "Green", "Cracked", "Boiled", "Scrambled"];
-		  document.getElementById("listofeggs").innerText = eggs.join(" Egg\n") + " Egg"
-	  </script>
-	  <br>
-	  <p>Click this button to display a random egg!</p>
 	  <input type=button value="RANDOM EGG!" onclick=getRandomEgg()>
 	  <script>
 	  let x = ""
@@ -38,18 +33,37 @@
     document.getElementById("eggoutput").innerHTML = eggs[funkyegg] + " Egg";
 	  }
 	  </script>
-	  <p>Create your own type of egg! (do not egg to the end, egg is added automatically)</p>
+	  <p>Create your own type of egg!</p>
 	  <input type=text value="Fried" id="input">
 	  <input type=button value="add your egg man!" onclick=addYoEgg()>
 	  <script>
+		  let addedEgg = "";
 		  function addYoEgg(){
 		eggs.push(document.getElementById("input").value);
-		  document.getElementById("listofeggs").innerText = eggs.join(" Egg\n") + " Egg"}
+		  addedEgg = (document.getElementById("input").value);
+		  document.getElementById("listofeggs").innerText = eggs.join(" Egg\n") + " Egg";
+		  document.getElementById("eggoutput").innerHTML = "You have added " + addedEgg + " Egg.";
+		  }
+			
 	  </script>
-	  <br><br><br>
-	  <p></p>
+	  <br>
+	  <p>Remove the last egg from the egg system.</p><br>
+	  <input type=button value="Remove an egg!" onclick=eggDestroyer()>
+	  <script>
+		  let removedEgg = "";
+		  function eggDestroyer(){
+		  removedEgg = eggs.pop();
+	          document.getElementById("eggoutput").innerHTML = "You have removed " + removedEgg + " Egg.";
+		  document.getElementById("listofeggs").innerText = eggs.join(" Egg\n") + " Egg"
+		  }
+	  </script>
+	  <br><br>
+	  <p>Egg Output:</p>
+	  <p id="eggoutput">---</p>
+	  <br>
+	  <p>Here is a list of every possibe egg type:</p>
+	 <p id="listofeggs"></p>
   </body>
 </html>
-
   </body>
 </html>
