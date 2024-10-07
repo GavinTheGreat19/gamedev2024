@@ -4,11 +4,38 @@
       body {
         padding: 32px;
         background-image: url('cwacomb.jpg');
-        font-size: 20px;
+        font-size: 25px;
       }
     </style>
   </head>
 <body>
-<p>Gavin Is COOL!</p>
+<h1 align-center>t1a12-objects-gavin</h1>
+<br>
+<p>Fill out the below fields to create your own object!</p><br>
+<p>Food type:</p>
+<input type=text id="food" value="pizza">
+<br><p>Topping or primary ingredient:</p>
+<input type=text id="topping" value="pepperoni">
+<br><p>How you feel about this food:</p>
+<input type=text id="feeling" value="love">
+<br>
+<input type=button value='Click to display information!' onclick=setAndDisplay()>
+<br>
+<p id="output">--Output Here--</p>
+<script>
+  let myFood = {
+    'foodtype'     : '',
+    'toppingtype'  : '',
+    'feelingtype'  : '' }
+  function setAndDisplay(){
+      myFood.foodtype = document.getElementById("food").value;
+      myFood.toppingtype = document.getElementById("topping").value;
+      myFood.feelingtype = document.getElementById("feeling").value;
+
+      document.getElementById("output").innerHTML = myFood.foodtype + " is something people put in their mouths. " +
+                myFood.foodtype + " usually has " + myFood.toppingtype + " on or in it. I " + 
+                myFood.feelingtype + " " + myFood.foodtype + ".";
+  }
+</script>
 </body>
 </html>
