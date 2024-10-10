@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <style id="BackGround">
+        body {
+	  height: 100%;
+          padding: 60px;
+          background: linear-gradient(to bottom, Orange, Purple);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-color: White;
+	  color: Black;
+	  font-size: 20px;
+    font-family: "Lucida Console", "Courier New", monospace; 
+        }
+    </style>
+  </head>
+  <body>
+    <br>
+    <h1 style="color: White;"><b>t1a13-json-gavin</b></h1>
+    <br>
+    <p>Fox Images:</p>
+    <img id="foxImage" style="max-width: 250px"><br><br>
+    <input type=button value="New Image!" onclick=getFox()>
+    
+    <script>
+    function getFox() {
+          fetch('https://randomfox.ca/floof/')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('foxImage').src = data.image;
+    });
+    }
+
+    getFox();
+    </script>
+    <br><br>
+    <p>Motavational Quote:</p>
+    <p id="quote" style="font-family:'Times New Roman', Times, serif; font-size: 25px; color: White;"></p>
+    <p id="author" style="font-family:'Times New Roman', Times, serif; font-size: 25px; color: White;"></p><br>
+    <input type=button value="New Quote!" onclick=getQuote()>
+    <script>
+    function getQuote() {
+          fetch('https://api.quotable.io/random')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('quote').innerHTML = `<i>"${data.content}"<i>`;
+            document.getElementById('author').innerHTML = `<i>- ${data.author}<i>`;
+        })
+              }
+      getQuote();
+    </script>
+  </body>
+</html>
