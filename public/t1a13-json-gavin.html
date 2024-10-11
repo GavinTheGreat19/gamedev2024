@@ -40,7 +40,7 @@
     <input type=button value="New Quote!" onclick=getQuote()>
     <script>
     function getQuote() {
-          fetch('api.quotable.io/quotes/random')
+          fetch('https://api.quotable.io/quotes/random')
         .then(response => response.json())
         .then(data => {
             document.getElementById('quote').innerHTML = `<i>"${data.content}"<i>`;
