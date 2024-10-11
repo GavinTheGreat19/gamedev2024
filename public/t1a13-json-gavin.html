@@ -39,8 +39,10 @@
     <p id="author" style="font-family:'Times New Roman', Times, serif; font-size: 25px; color: White;"></p><br>
     <input type=button value="New Quote!" onclick=getQuote()>
     <script>
+ 	// I am seriously losing my shit over this API, it continues to not work, and whenever I'm close overprotective browsers don't allow it, or it just returns undefined.;
     function getQuote() {
-          fetch('https://api.quotable.io/quotes/random')
+          fetch('https://api.quotable.io/')
+	 GET /random
         .then(response => response.json())
         .then(data => {
             document.getElementById('quote').innerHTML = `<i>"${data.content}"<i>`;
