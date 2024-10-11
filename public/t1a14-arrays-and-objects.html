@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <style>
+      body {
+	  height: 100%;
+          padding: 60px;
+          background: linear-gradient(to bottom, Purple, Lime);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-color: Lime;
+	  color: White;
+	  font-size: 16px;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>t1a14-objects-and-arrays-gavin</h1>
+    <br>
+    <p><i>Objects:</i> a named list of variables, such as properties of a certain thing (example: An object, a person, and their different defining characteristics.</p>
+    <p><i>Arrays:</i> a numbered list of variables, such as many of a certain kind of thing (example: A box of fruits, and the different kinds of fruits inside of it.</p>
+    <br>
+    <p>An Array can exist inside of an object (example: A person's different characteristics, their favorite kinds of fruits) An object can exist inside of an Array (example: A box of fruits, and the texture or age of a particular fruit)</p>
+    <br>
+    <br>
+    <h2>Example of an Array inside of an object:</h2>
+    <p id=outputGuy></p>
+    <script>
+      let personGuy = {
+        name: 'Madeline',
+        hobbies: ['Climbing mountains', 'Collecting strawberries', 'Double-Jumping'],
+        age: '24'
+      };
+      function displayGuy(){
+        let hobbiesString = personGuy.hobbies.join(', ');
+        document.getElementById("outputGuy").innerHTML = "Hello, my name is " + personGuy.name + ", I am " + personGuy.age + " years old. My hobbies inlude: " + hobbiesString + ".";
+      }
+      displayGuy();
+    </script>
+    <input type="button" value="Set and Display a new person!">
+    <input type="text" placeholder="Input Name Here" value="Little Mouse">
+    <input type="text" placeholder="input Age Here" value="43">
+    //add new shit
+  </body>
+</html>
