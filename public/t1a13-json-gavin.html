@@ -19,7 +19,7 @@
     <h1 style="color: White;"><b>t1a13-json-gavin</b></h1>
     <br>
     <p>Fox Images:</p>
-    <img id="foxImage" style="max-width: 1000px"><br><br>
+    <img id="foxImage" style="max-width: 250px"><br><br>
     <input type=button value="New Image!" onclick=getFox()>
     
     <script>
@@ -40,7 +40,7 @@
     <input type=button value="New Quote!" onclick=getQuote()>
     <script>
     function getQuote() {
-          fetch('https://api.quotable.io/random')
+          fetch('https://api.quotable.io/quotes/random')
         .then(response => response.json())
         .then(data => {
             document.getElementById('quote').innerHTML = `<i>"${data.content}"<i>`;
