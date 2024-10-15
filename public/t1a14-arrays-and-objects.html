@@ -37,18 +37,70 @@
       displayGuy();
 	    
       function setNewGuy(){
+	personGuy.name = document.getElementById("nameInput").value;
+	personGuy.age = document.getElementById("ageInput").value;
 
 	displayGuy();
       }
-      function resetHobbie(){
-	person.hobbies = [];      
+      function resetHobbies(){
+	personGuy.hobbies = [];
+
+	displayGuy();
+	
+      }
+      function addHobby(){
+	let newHobby = document.getElementById("hobbiesInput").value;
+	personGuy.hobbies.push(newHobby);
+
+	displayGuy();
       }
     </script>
     <input type="button" value="Set and Display the new guy!" onclick="setNewGuy();"><br>
     <input id="nameInput" type="text" placeholder="Input Name Here" value="Little John"><br>
     <input id="ageInput" type="text" placeholder="Input Age Here" value="43"><br>
 	  
-    <input type="button" value="Reset Hobbies" onclick="resetHobbies();"> <input type="button" value="Add New Hobby" onclick="addHobby();"><br>
-    <input id="hobbies" type="text" placeholder="Input Hobbies Here" value="Eating Bugs">
+    <input type="button" value="Reset Hobbies" onclick="resetHobbies();"> <input type="button" value="Add New Hobby" onclick="addHobby();"> <br>
+    <input id="hobbiesInput" type="text" placeholder="Input Hobbies Here" value="Eating Bugs">
+<br>
+<br>
+
+	<h2>Example of an object inside of an Array:</h2>
+	<br>
+	<p id = outputFruit></p>
+	<br>
+	<script>
+	let fruitCrate = [
+		{
+			name: 'Apple',
+			age: '3',
+			condition: 'smooth'
+		},
+		{
+			name: 'Orange',
+			age: '7',
+			condition: 'bumpy'
+		},
+		];
+	function displayFruit(){
+	    let fruitList = fruitCrate.map(fruit => `Name: ${fruit.name}, Age: ${fruit.age} weeks, Condition: ${fruit.condition}`).join('<br><br>');
+            document.getElementById("outputFruit").innerHTML = fruitList;
+        }
+	function addFruit(){
+	    let newFruit = {
+		name: document.getElementById("fruitNameInput").value,
+		age: document.getElementById("fruitAgeInput").value,
+		condition: document.getElementById("fruitConditionInput").value
+	    }
+	fruitCrate.push(newFruit);
+	displayFruit();
+	}
+	displayFruit();
+
+	
+	</script>
+	<input id='fruitNameInput' type='text' value='Pear' placeholder='Fruit Name'><br>
+	<input id='fruitAgeInput' type='text' value='23' placeholder='Fruit Age (Weeks)'><br>
+	<input id='fruitConditionInput' type='text' value='Rotting' placeholder='Fruit Condition'><br>
+	<input type="button" value="Add Fruit" onclick="addFruit();"><br>
   </body>
 </html>
