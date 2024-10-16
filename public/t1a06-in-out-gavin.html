@@ -1,74 +1,95 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <style id="BackGround">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Website</title>
+    <style>
         body {
-	  border: 10px, black;
-	  height: 100%;
-          padding: 60px;
-          background: linear-gradient(to bottom, Grey, Black);
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-color: black;
+            height: 100%;
+            padding: 60px;
+            background: linear-gradient(to bottom, grey, black);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: black;
         }
 
         p {
-        font-family: "Comic Sans", "Comic Sans MS", "Comic Relief";
-        color: White;
-        font-size: 25px;
+            font-family: "Comic Sans", "Comic Sans MS", "Comic Relief";
+            color: white;
+            font-size: 25px;
         }
     </style>
-
-
-    <body id="BackGround">
+</head>
+<body id="BackGround">
     <p id="Text">Welcome to this really cool website</p>
     <button onclick="gavinEVILMODE()">Activate EVIL MODE!</button>
     <button onclick="gavinBLUEMODE()">Activate Blue Flavor!</button>
-	<br><br><br>
-    <p><label id="Text" for="name">Please Enter Your Name: </label></p>
- 	<input type=text id="name" placeholder="Name goes here">
-	<button onclick="donamething()">Confirm Name</button> <br>
-  <p id="hello" class="white-text"></p>
-
-   <script>
-	function donamething() {
-	 var nameInput = document.getElementById('name');
-	 var name = nameInput.value;
-	 var helloDiv = document.getElementById('hello');
-
-	
-	if (name.trim() !== '')  {
-	 helloDiv.innerText = 'Hello ' + name + ', I hope you are doing well!';
-	} else { helloDiv.innerText = 'Error, no name specified. Please enter name';
-	       }
-	   }
-	
-    </script>
-							
-
-
- 
-    
-    <script>
-      function gavinEVILMODE() {
-        let x = document.getElementById("BackGround")
-        document.body.style = "border: 10px, black; height: 100%; padding: 60px; background: linear-gradient(to bottom, Red, Black); background-size: cover; background-repeat: no-repeat; background-color: black;";
-      }
-    </script>
-
-	    <!--  ^ Turns gradient Red when button clicked, V turns gradient Blue when button clicked. There is no way to return to grey... -->
+    <br><br><br>
+    <p>Please Enter Your Name:</p>
+    <input type="text" id="name" placeholder="Name goes here">
+    <button onclick="donamething()">Confirm Name</button> 
+    <br>
+    <p id="hello" class="white-text"></p>
+    <br>
+    <input type="button" value="Evil Thing" onclick="doEvilThing()"><br>
+    <input type="button" value="Picture Thing" onclick="doPictureThing()"><br>
+    <input type="button" value="Evil Picture Thing" onclick="doEvilPictureThing()"><br>
+    <input type="button" value="Get Funny Number" onclick="getFunnyNumber()"><br>
 
     <script>
-      function gavinBLUEMODE() {
-        let x = document.getElementById("BackGround")
-        document.body.style = "border: 10px, black; height: 100%; padding: 60px; background: linear-gradient(to bottom, Blue, Black); background-size: cover; background-repeat: no-repeat; background-color: black;";
-        let y = document.getElementById("Text")
-        y.style.fontFamily = "'Comic Sans', 'Comic Sans MS', 'Comic Relief'";
-      }
-    </script>
+        function error() {
+            document.getElementById('hello').innerText = 'Error, no name specified. Please enter name';
+        }
 
-	    <!-- This code fucking sucks -->
-    
-    </body>
-  </head>
+        function donamething() {
+            var nameInput = document.getElementById('name');
+            var name = nameInput.value;
+            var helloDiv = document.getElementById('hello');
+
+            if (name.trim() !== '') {
+                helloDiv.innerText = 'Hello ' + name + ', I hope you are doing well!';
+            } else {
+                error();
+            }
+        }
+
+        function doEvilThing() {
+            let name = document.getElementById('name').value;
+            if (name.trim() !== '') {
+                document.getElementById('hello').innerText = `Unhappy day ${name}, I hope you are doing terribly! >:3`;
+            } else {
+                error();
+            }
+        }
+
+        function doPictureThing() {
+            document.getElementById('hello').innerHTML = `<img src='nerd-emoji.gif' alt='Nerd Emoji'>`;
+        }
+
+        function doEvilPictureThing() {
+            document.getElementById('hello').innerHTML = `<img src='evil-nerd-emoji.gif' alt='Evil Nerd Emoji'>`;
+        }
+
+        async function getFunnyNumber() {
+    try {
+        const resp = await fetch('https://api64.ipify.org?format=json');
+        const data = await resp.json();
+        document.getElementById('hello').innerText = `Your funny number is: '${data.ip}' Share this funny number with all of your friends!`;
+    } catch (error) {
+        document.getElementById('hello').innerText = 'Error fetching the funny number.';
+    }
+}
+
+
+        function gavinEVILMODE() {
+            document.body.style.background = "linear-gradient(to bottom, red, black)";
+        }
+
+        function gavinBLUEMODE() {
+            document.body.style.background = "linear-gradient(to bottom, blue, black)";
+            document.getElementById("Text").style.fontFamily = "'Comic Sans', 'Comic Sans MS', 'Comic Relief'";
+        }
+    </script>
+</body>
 </html>
