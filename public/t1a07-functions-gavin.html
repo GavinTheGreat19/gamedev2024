@@ -45,7 +45,18 @@
 	
     </script>
 							
-
+<!-- I need to add some new crap because grade is low and stuff.-->
+<input type=button value="Press for advice" onclick="getThing()">
+<script>
+function getThing() {
+    fetch('https://api.adviceslip.com/advice')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('hello').innerText = data.slip.advice;
+		}	)
+	      }
+</script>
+<!-- End of new stuff -->
 
  
     
