@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <style>
+      body {
+	        height: 100%;
+          padding: 60px;
+          background: linear-gradient(to bottom, Yellow, Green);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-color: Green;
+	        color: Purple;
+      	  font-size: 16px;
+    }
+    </style>
+  </head>
+  <body>
+
+  <h1>t1a17-move-gavin</h1>
+    <br><br>
+<script>
+    let myClock02;
+    let moveDistance = 300;
+
+      function moveImageRight() {
+        document.getElementById('myImage01').style.left =
+      parseInt(document.getElementById('myImage01').style.left) + 50 + 'px'
+      }
+
+      function moveImageLeft() {
+        document.getElementById('myImage01').style.left =
+      parseInt(document.getElementById('myImage01').style.left) - 50 + 'px'
+      }
+
+      function moveImageUp() {
+        document.getElementById('myImage01').style.top =
+      parseInt(document.getElementById('myImage01').style.top) - 50 + 'px'
+      }
+
+      function moveImageDown() {
+         document.getElementById('myImage01').style.top =
+      parseInt(document.getElementById('myImage01').style.top) + 50 + 'px'
+      }
+
+            function moveImageRight2() {
+        document.getElementById('myImage02').style.left =
+      parseInt(document.getElementById('myImage02').style.left) + 50 + 'px'
+      }
+
+      function moveImageLeft2() {
+        document.getElementById('myImage02').style.left =
+      parseInt(document.getElementById('myImage02').style.left) - 50 + 'px'
+      }
+
+      function moveImageUp2() {
+        document.getElementById('myImage02').style.top =
+      parseInt(document.getElementById('myImage02').style.top) - 50 + 'px'
+      }
+
+      function moveImageDown2() {
+         document.getElementById('myImage02').style.top =
+      parseInt(document.getElementById('myImage02').style.top) + 50 + 'px'
+      }
+
+
+</script>
+    
+<input type="button" id="myButton02" value="Image Left" onclick="moveImageLeft()">
+<input type="button" id="myButton01" value="Image Right" onclick="moveImageRight()">
+<input type="button" id="myButton03" value="Image Up" onclick="moveImageUp()">
+<input type="button" id="myButton04" value="Image Down" onclick="moveImageDown()">
+<br><br>
+<input type="button" id="myButton02" value="Image Left 2" onclick="moveImageLeft2()">
+<input type="button" id="myButton01" value="Image Right 2" onclick="moveImageRight2()">
+<input type="button" id="myButton03" value="Image Up 2" onclick="moveImageUp2()">
+<input type="button" id="myButton04" value="Image Down 2" onclick="moveImageDown2()">
+    
+    <br><br><br><br><br><br><br><br>
+<img id="myImage01" style="position:relative; width:100px; height:100px; top:0px; left:0px;" src="smiley.png">
+<br><br><br>
+<img id="myImage02" style="position:relative; width:100px; height:100px; top:0px; left:0px;" src="evilsmiley.png">
+
+</body>
+</html>
