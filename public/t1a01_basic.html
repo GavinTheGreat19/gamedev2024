@@ -1,14 +1,19 @@
 <html>
   <head>
+
+<!-- I'm going to have to make this page unrecognizable to get a better grade. I'm sorry future historians for painting over this age old statue.
+	  -->
      <style id="BackGround">
         body {
 	  border: 10px, black;
 	  height: 100%;
           padding: 60px;
-          background: linear-gradient(to bottom, Purple, Black);
+          background: linear-gradient(to bottom, White, Purple);
           background-size: cover;
           background-repeat: no-repeat;
-          background-color: black;
+          background-color: Purple;
+	  color: Black;
+	  font-family: "Comic Sans", "Comic Sans MS", "Comic Relief";
         }
 
         p {
@@ -25,5 +30,13 @@
     <img src="0001.png" alt="An image of 3D, simple, geometric wizard" width="400" height="400"/>
     </p>
     <p style ="text-align: center;"><a href ="https://gavinthegreat19.github.io/gamedev2024/">return to homepage</a></p>
+
+	  <br><p id="funkyBunk"> These are cool words!!! YEAH! !!!</p><br>
+	  <input type="button" value="cool button" onclick="makeThing()">
+    <script>
+	function makeThing() {
+	document.getElementById("funkyBunk").innerText = "THIS BUTTON MAKES WORDS. THAT IS NEAT. WHAT MORE DO YOU WANT?";
+	}
+    </script>
   </body>
 </html>
