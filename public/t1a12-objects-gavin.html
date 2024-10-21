@@ -5,6 +5,7 @@
         padding: 32px;
         background-image: url('cwacomb.jpg');
         font-size: 25px;
+        text-shadow: 2px 2px 5px white;
       }
     </style>
   </head>
@@ -35,7 +36,11 @@
       document.getElementById("output").innerHTML = myFood.foodtype + " is something people put in their mouths. " +
                 myFood.foodtype + " usually has " + myFood.toppingtype + " on or in it. I " + 
                 myFood.feelingtype + " " + myFood.foodtype + ".";
+
+     document.getElementById("displayObject").innerHTML = "Object Name: 'myFood', " + "myFood.foodtype: " + myFood.foodtype + ", myFood.toppingtype: " + myFood.toppingtype + ", myFood.feelingtype: "  + myFood.feeling + "."
   }
 </script>
+
+<p id="displayObject">---</p>
 </body>
 </html>
