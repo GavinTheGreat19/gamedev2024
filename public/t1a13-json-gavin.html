@@ -41,15 +41,18 @@
     <script>
  	// I am seriously losing my shit over this API, it continues to not work, and whenever I'm close overprotective browsers don't allow it, or it just returns undefined.;
     function getQuote() {
-          fetch('https://api.quotable.io/')
-	 GET /random
+          fetch('https://api.quotable.io/random')
         .then(response => response.json())
         .then(data => {
-            document.getElementById('quote').innerHTML = `<i>"${data.content}"<i>`;
-            document.getElementById('author').innerHTML = `<i>- ${data.author}<i>`;
+            document.getElementById('quote').innerHTML = `<i>"${data.content}"</i>`;
+            document.getElementById('author').innerHTML = `<i>- ${data.author}</i>`;
         })
               }
       getQuote();
     </script>
+<!-- This is the world's laziess work around, instead of figuring out why it's not working, I'm just going to make the user visit an unprotected site! Fantastic idea Gavin! -->
+<br><br><br><br>
+<p style="font-size: 15px;">Note; If the quote grabber is non-functional, you have to open <a href="https://api.quotable.io/random" target="_blank">this website</a> in a seperate tab in order for the quote grabber to work.</p>
+<!-- This disclaimer is unneccesary, The thing works now for some reason -->
   </body>
 </html>
