@@ -1,14 +1,14 @@
 <html>
   <head>
     <style>
-             body {
-	        height: 100%;
+        body {
+          height: 100%;
           padding: 60px;
-          background: linear-gradient(to bottom, #7B3F00, Purple);
+          background: linear-gradient(to bottom, Brown, Pink);
           background-size: cover;
           background-repeat: repeat;
-          background-color: Cyan;
-	        color: White;
+          background-color: Pink;
+	  color: White;
           text-shadow: 2px 2px 5px black;
       	  font-size: 20px;
           font-family: "Comic Sans", "Comic Sans MS", "Comic Relief";
@@ -16,10 +16,24 @@
     </style>
     
   </head>
-  <body>
-  <h1><i><b>Gavin's Eventful Website</b></i></h1>
-  <br>
-  <p>(Pretend there are things here, I'll work on it later.) (Just give 9/9 please)</p>
-	  <a href="https://www.youtube.com/watch?v=kv53CZPqGjw">Grunkle Stunkle Wins the Funkle Bunkle</a>
+  <body onMouseMove="{
+	  document.getElementById('outputThing').innerHTML = `Cursor X: ${event.clientX}, Cursor Y: ${event.clientY}`
+	}" onKeyDown="{
+	  document.getElementById('outputThing2').innerHTML = `You pressed: ${event.key}`
+	  }">
+  <h1><i><b>Gavin's Eventful Website</b></i></h1><br><br>
+  <p id="outputThing">Cursor X: , Cursor Y:</p>
+  <p id="outputThing2">You pressed: </p>
+ <br><br>
+  <p>This website has some <i>Mystical Secret Eggs!</i> Can you find all five? click the thing below for a list of all secrets.</p>
+	  <br>
+  <input type='button' value='cheater button because you are lame and cannot find the secrets' onclick="{
+  document.getElementById('listOutput').innerHTML = "
+  
+ 	}">
+	  <br>
+  <div id="listOutput">"Easter Egg list will appear here"</div>
+<br><br>
+	  <br><br><br><a href="https://www.youtube.com/watch?v=kv53CZPqGjw">Grunkle Stunkle Wins the Funkle Bunkle</a>
   </body>
 </html>
