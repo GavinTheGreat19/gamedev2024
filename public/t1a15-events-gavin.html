@@ -27,13 +27,59 @@
  <br><br>
   <p>This website has some <i>Mystical Secret Eggs!</i> Can you find all five? click the thing below for a list of all secrets.</p>
 	  <br>
-  <input type='button' value='cheater button because you are lame and cannot find the secrets' onclick="{
-  document.getElementById('listOutput').innerHTML = "
-  
+  <input type='button' value='Button to reveal the easter eggs' onclick="{
+  document.getElementById('listOutput').innerHTML =`<br>Secret 1: Press the 'G' key to watch 'Grunkle Stunke Wins the Funkle Bunkle' on youtube.com <br><br>
+  Secret 2: Press the 'P' Key to hear the sound of a metal pipe falling (Turn up volume to maximum!!11!1!1) <br><br>
+  Secret 3: Press the 'S' Key to summon an image of Sebastian Solace <br><br>
+  Secret 4: Have your mouse's Y Value be greater than 900 to turn the sky pink white and blue <br><br>
+  Secret 5: Have your mouse's X Value be greater than 1800 to summon a laughing baby`
  	}">
+	  
 	  <br>
-  <div id="listOutput">"Easter Egg list will appear here"</div>
+	  <script>
+document.addEventListener('keydown', (event) => {
+    let keyPressed = event.key;
+    if (keyPressed === 'p' || keyPressed === 'P') {
+        let sound = new Audio('metal-pipe-clang.mp3');
+        sound.play();
+    }
+});
+
+document.addEventListener('keydown', (event) => {
+    let keyPressed = event.key;
+    if (keyPressed === 'g' || keyPressed === 'G') {
+      window.open('https://www.youtube.com/watch?v=kv53CZPqGjw', '_blank');
+    }
+});
+
+document.addEventListener('keydown', (event) => {
+    let keyPressed = event.key;
+    if (keyPressed === 's' || keyPressed === 'S') {
+      document.getElementById('output').innerHTML = '<img src=sebby.png width="128" height="128">'
+    }
+});
+
+document.addEventListener('mousemove', (event) => {
+    let MouseX = event.clientX;
+    if (MouseX > 1800) {
+      document.getElementById('output').innerHTML = '<img src="laughing-baby.gif" width="128" height="128">'
+	let sound = new Audio('baby-laughing-meme.mp3');
+        sound.play();
+    }
+});
+
+document.addEventListener('mousemove', (event) => {
+    let MouseY = event.clientY;
+    if (MouseY > 900) {
+    document.body.style.background = 'linear-gradient(to bottom, Cyan, Pink, White)';
+    }
+});
+	</script>
+<br>
+<div id="output"></div>
+<br>	  
+  <div id="listOutput">Easter Egg list will appear here</div>
 <br><br>
-	  <br><br><br><a href="https://www.youtube.com/watch?v=kv53CZPqGjw">Grunkle Stunkle Wins the Funkle Bunkle</a>
+	  <br><br><br><p>----</p>
   </body>
 </html>
