@@ -1,0 +1,61 @@
+<html>
+  <head>
+      <style>
+        body {
+          height: 100%;
+          padding: 60px;
+          background: linear-gradient(to bottom, Brown, Purple);
+          background-size: cover;
+          background-repeat: repeat;
+          background-color: Purple;
+	  color: White;
+          text-shadow: 2px 2px 5px black;
+      	  font-size: 20px;
+          font-family: "Comic Sans", "Comic Sans MS", "Comic Relief";
+    }
+    </style>
+    <title>I haven't done on of these in a while</title>
+  </head>
+  <body>
+    <script>
+      let myMax = 3;
+      let myArrayManual = new Array(myMax);
+      let myArrayAuto = new Array(myMax);
+    </script>
+
+    <input type="text" id="myFirstName" value="fred">
+    <br>
+    <input type="button" value="Set Manual Array" onclick="{
+      myArrayManual =  [ [3,4,2], [1,2,3], [5,6,7] ]
+
+        document.getElementById('output').innerHTML = 'Array set'
+    }">
+
+    <input type=button value="Show Manual Array" onclick="{
+      document.getElementById('output').innerHTML = ''
+      console.log(myArrayManual)
+
+      for (myLoop0=0;  myLoop0 < myMax;  myLoop0++){
+
+        for (myLoop1=0; myLoop1 < myMax; myLoop1++){
+
+          document.getElementById('output').innerHTML +=
+            'myArrayManual[${myLoop0},${myLoop1}] = ${myArrayManual[myLoop0][myLoop1]}<br>'
+                  }
+              }
+          }">
+
+    <input type="button" value="set Auto Array" onclick="{
+      myArrayAuto[0,0] = Math.floor(Math.random() * 100)
+      document.getElementById('output').innerHTML = myArrayAuto[0,0]
+    }">
+
+    <input type=button value="Set Auto Array" onclick="{
+      myArrayAuto[0,0] = Math.floor(Math.random() * 100)
+      document.getElementById('output').innerHTML += 'you print it out'
+    }"><br>
+
+    <div id="output"> </div>
+    
+  </body>
+</html>
