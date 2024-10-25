@@ -34,7 +34,7 @@
       let myArray1 = ["apple","pear","banana","orange","peach"]
 
       function myFunction1() {
-        let input = parseInt(document.getElementById("inputOne").value);
+        let input = parseInt(document.getElementById("inputOne").value) - 1;
         let tempResult = myArray1[input];
         
         document.getElementById("outputOne").innerHTML = `You have selected: ` + tempResult + `.`;
@@ -56,8 +56,8 @@
                        ["Grey Ball", "Skin-Colour Ball", "Pink Ball", "Yellow Ball"],
                       ["Skin-Colour Ball", "Lime Ball", "Light Blue Ball", "Navy Blue"] )
       function myFunction2() {
-        let inputX = parseInt(document.getElementById("inputTwoX").value);
-        let inputY = parseInt(document.getElementById("inputTwoY").value);
+        let inputX = parseInt(document.getElementById("inputTwoX").value) - 1;
+        let inputY = parseInt(document.getElementById("inputTwoY").value) - 1;
 
         let tempResult = myArray([2],[2]);
 
