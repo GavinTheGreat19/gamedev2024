@@ -1,1 +1,86 @@
+<html>
+  <head>
+        <style>
+      body {
+	  height: 100%;
+          padding: 60px;
+          background: linear-gradient(to bottom, Red, Purple);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-color: Purple;
+	  color: White;
+	  font-size: 20px;
+    font-family: "Comic Sans", "Comic Sans MS", "Comic Relief";
+    }
+    </style>
+  </head>
+  <body>
+    <h3><i>t1a16:</i></h3>
+    <h1>Multi Dimensonal Arrays.</h1>
+    <br>
+    <p><b>What is an array?</b></p>
+    <br>
+    <p><i>Arrays:</i> A numbered list of variables. An array is typically used to store many of the same type of thing. For example, a box of many kinds of fruits.</p>
+    <br>
+    <p>Example of an array:</p>
+    <img src="arrrayexample1.png">
+    <p>You can think of an array as a number line, but for the storage and orginization of variables.</p>
+    <p><i>Interact with the example!</i></p>
+    <input type="number" id="inputOne" placeholder="Number!" value="3"><br>
+    <input type="button" value="Select Variable!" onclick="myFunction1()"><br>
+    <p id="outputOne">Output</p>
 
+    <script>
+      let myArray1 = ["apple","pear","banana","orange","peach"]
+
+      function myFunction1() {
+        let input = parseInt(document.getElementById("inputOne").value);
+        let tempResult = myArray1[input];
+        
+        document.getElementById("outputOne").innerHTML = `You have selected: ` + tempResult + `.`;
+      }
+    </script>
+    <br><br><br>
+    <p><i>Example of a two-dimensional array:</i></p>
+    <img src="arrrayexample2.png">
+    <p>You can think of a 2D Arrays being like a "Cartesian plane" (a grid), but for the storage of variables. You could use a 2D array to further organize an array (example: fruits, use the 2nd dimension to sort by colour or shape.)</p>
+    <p><i>Interact with the example!</i></p>
+    <input type="number" value="2" id="inputTwoX" placeholder="X Number!"><br>
+    <input type="number" value="2" id="inputTwoY" placeholder="Y Number!"><br>
+    <input type="button" value="Select Variable!" onclick="myFunction2()"><br>
+    <p id=outputTwo>Output</p>
+
+    <script>
+      let myArray2 = ( ["Red Ball","Orange Ball","Yellow Ball","Green Ball"],
+                       ["Cyan Ball","Blue Ball","Purple Ball","Lavander Ball"],
+                       ["Grey Ball", "Skin-Colour Ball", "Pink Ball", "Yellow Ball"],
+                      ["Skin-Colour Ball", "Lime Ball", "Light Blue Ball", "Navy Blue"] )
+      function myFunction2() {
+        let inputX = parseInt(document.getElementById("inputTwoX").value);
+        let inputY = parseInt(document.getElementById("inputTwoY").value);
+
+        let tempResult = myArray([2],[2]);
+
+        document.getElementById("outputTwo").innerHTML = `You have selected: ` + tempResult + `.`;
+      }
+    </script>
+    <br><br><br>
+    <p><i>Example of a three-dimensional array:</i></p>
+    <img src="arrrayexample3.png">
+    <p>You can think of a 3D Array being like a Euclidean Space, storing variables on the ground and in the air</p>
+    <p><i>Interact with the example!</i></p>
+    <input type="number" value='2' id='inputThreeX'><br>
+    <input type="number" value='3' id='inputThreeY'><br>
+    <input type="number" value='1' id='inputThreeZ'><br>
+    <input type="button" value="Select Variable!" onclick="myFunction3()">br>
+    <p id=outputThree>Output</p>
+
+    <script>
+      function myFunction3() {
+        document.getElementById("outputThree").innerHTML = `You have selected: ERR_LOCATION_NOTFOUND_404 (Contact Gavin for assistance)`
+      }
+    </script>
+  
+  
+</body>
+</html>
