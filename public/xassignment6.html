@@ -7,17 +7,26 @@
     <script src="matter.min.js"></script>
     <style>
         body {
+            background: linear-gradient(to bottom, Purple, blue);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: blue;
+	        color: white;
+            padding: 20px;
+      	    font-size: 20px;
             justify-content: center;
             text-align: center;
             align-items: center;
-            margin: 0;
-            overflow: hidden;
-        }
+            font-family: 'Comic Sans', 'Comic Sans MS', 'Comic Relief';
+    }
     </style>
 </head>
 <body>
+    <h1>Throw Gavin!</h1>
     <img width="128" height="128" src="default.png" style="display: none;">
     <script>
+        // Adding Score - G
+        let score = 0
         // module aliases
         var Engine = Matter.Engine,
             Render = Matter.Render,
@@ -99,6 +108,10 @@
                     setTimeout(function() {
                         box.render.sprite.texture = 'default.png';
                     }, 250);
+
+                    // Increasing Score! -G
+                    score += 1;
+                    document.getElementById('scoreDisplay').innerText = `Points: ${score}`;
                 }
             });
         });
@@ -130,6 +143,6 @@
         // run the engine
         Runner.run(runner, engine);
     </script>
+    <p id="scoreDisplay">Score : </p>
 </body>
 </html>
-s
