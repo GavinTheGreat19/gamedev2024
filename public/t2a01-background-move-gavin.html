@@ -2,25 +2,67 @@
     <head>
       <style>
        body {
-    padding: 60px;
-    color: White;
-	  font-size: 20px;
-    text-shadow: 2px 2px 5px black;
-    font-family: "Comic Sans", "Comic Sans MS", "Comic Relief";
-    background: url("checkerGrey.png");
+    	padding: 60px;
+    	color: White;
+    	font-size: 20px;
+    	text-shadow: 2px 2px 5px black;
+    	font-family: "Comic Sans", "Comic Sans MS", "Comic Relief";
+    	background: url("checkerGrey.png");
+    	background-repeat: repeat;
+    	background-size: 100%;
       }
+	      img {
+		filter: drop-shadow(2px 2px 5px black);
+	      }
+	      input {
+		filter: drop-shadow(2px 2px 5px black);
+	      }
       </style>
     
-      <body>
+      <body id="mainBody" style="background-repeat:repeat; background-size: 256px">
         <p><i>t2a01-background-move-gavin</i></p>
-        <h1>The Bunny Race!</h1>
+        <h1>The Bunny Chase!</h1>
+	<p><i>Use the WASD keys, and the Arrow keys to control the bunnies!</i></p>
+	<input id="startButton" type=button value="Start the Game!" onclick="{gameStart();}">
+	<img src="bunnyBlue.png" style="position: absolute; top: 400px; left: 150px;">
+	<img src="bunnyRed.png" style="position: absolute; top: 600px; left: 600px;">
 
        <script>
-        let varriableX = -5
-        let varriableY = -5
+        let positionX = 0
+        let positionY = 0
+	let speedX = -2
+	let speedY = 1
+	let myClock
+	let tenSecondClock
+        // defining speed varriable -G
 
-         
+	function gameStart(){
+	backGroundMover()
+	tenSeccondInator()
+	}
+
+	function backGroundMover(){
+		//set slate clean -G
+	clearInterval(myClock);
+
+		myClock = setInterval(() => {
+                    // this uh makes it go something.
+                    positionX += speedX;
+                    positionY += speedY;
+
+                    // Hopfully this works
+                    document.getElementById("mainBody").style.backgroundPosition = `${positionX}px ${positionY}px`;
+                }, 20);
+            }
+
+	function tenSeccondInator(){
+	speedX -= 0.1
+	speedY += 0.1
+
+	setInterval(tenSeccondInator, 5000);
+	}
        </script>
+
       </body>
       
 </html>
