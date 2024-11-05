@@ -1,0 +1,21 @@
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <h1>Weather App</h1>
+    <br>
+    <script>
+      fetch("https://api.open-meteo.com/v1/forecast?latitude=49.1372&longitude=-122.2996&current=temperature_2m,weather_code&timezone=auto&forecast_days=1")
+  .then(response => response.json())
+  .then(data => {
+    const temp = data.current.temperature_2m;
+    const weather = data.current.weather_code;
+    document.getElementById("temp").textContent = `Temperature: ${temp}°C`;
+    document.getElementById("weather").textContent = `Weather: ${weather}`;
+  });
+    </script>
+    <div id="temp"></div>
+<div id="weather"></div>
+  </body>
+</html>
