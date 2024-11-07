@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <style>
+      body {
+      padding: 60px;
+      align-items: center;
+      font-size: 15px;
+      }
+      div.cool {
+      margin-left: 65px; 
+      }
+      div.butter {
+      margin-left: 75px;
+      }
+      div.special {
+      font-family: "Comic Sans", "Comic Sans MS", "Comic Relief";
+      color: purple;
+    </style>
+  </head>
+  <body>
+    <p><i>t2a21-canvas-gavin</i></p>
+    
+    <br><br>
+<div class="cool">
+    <canvas id="mrCanvas" width="500" height="500" style="border:1px solid black;"></canvas>
+<div class="butter">
+    <br>
+  <p>Starting Point: X Y </p><input id="x1" type="number" value="34"><input id="y1" type="number" value="12">
+    <br>
+  <p>Ending Point: X Y </p><input  id="x2" type="number" value="403"><input id="y2" type="number" value="380">
+    <br><input type="button" value="Create Line" onclick="{makeLine()}">
+    <p>Note, the canvas is 500px by 500px, the orgin is in the top left corner, the line is 4 pixels thick</p>
+</div>
+</div>
+    <script>
+      let paint = document.getElementById('mrCanvas');
+      let context = paint.getContext('2d');
+
+      function makeLine() {
+        let x1 = +document.getElementById('x1').value
+        let y1 = +document.getElementById('y1').value
+        let x2 = +document.getElementById('x2').value
+        let y2 = +document.getElementById('y2').value
+        
+        context.beginPath();
+        context.lineWidth = 4;
+        context.moveTo(x1,y1);
+        context.lineTo(x2,y2);
+        context.stroke();
+      }
+    </script>
+    <br>
+    <br>
+
+    <div class="butter">
+      <div class="special">
+        <p>Mr. Ellis special buttons!</p>
+        <input type=button value=".lineTo(30,200)" onclick="{
+        context.beginPath();
+        context.lineWidth = 1;
+        context.moveTo(20,10);
+        context.lineTo(30,200);
+        context.stroke(); 
+        }">
+        
+      </div>
+    </div>
+  </body>
+  
+</html>
