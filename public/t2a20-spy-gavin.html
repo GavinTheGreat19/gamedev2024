@@ -52,6 +52,25 @@
         <p><strong>Base64:</strong> <span id="base64Output"></span></p>
     </div>
 
+ <!-- Text Input -->
+    <label for="inputText">Enter Text:</label><br>
+    <textarea id="inputText" placeholder="Enter text here..."></textarea><br><br>
+
+    <!-- Key Input for Caesar Cipher -->
+    <label for="key">Enter Key (for Caesar Cipher):</label><br>
+    <input type="number" id="key" placeholder="Enter a number (key)" /><br><br>
+
+    <!-- Buttons for Encryption / Decryption -->
+    <button onclick="encryptText()">Encrypt</button>
+    <button onclick="decryptText()">Decrypt</button>
+
+    <!-- Output -->
+    <div class="output">
+        <h3>Encrypted / Decrypted Text</h3>
+        <p><strong>Caesar Cipher:</strong> <span id="caesarOutput"></span></p>
+        <p><strong>Base64:</strong> <span id="base64Output"></span></p>
+    </div>
+
     <script>
         // Caesar Cipher Encryption Function
         function caesarCipher(text, shift) {
@@ -68,14 +87,27 @@
             return result;
         }
 
+        // Caesar Cipher Decryption Function
+        function caesarDecipher(text, shift) {
+            return caesarCipher(text, -shift); // Decrypting is just applying the opposite shift
+        }
+
         // Base64 Encoding Function
         function base64Encode(text) {
             return btoa(text);
         }
 
-        // Main Encryption Handler
+        // Base64 Decoding Function
+        function base64Decode(text) {
+            try {
+                return atob(text);
+            } catch (e) {
+                return 'Invalid Base64 string';
+            }
+        }
+
+        // Encrypt Text Handler
         function encryptText() {
-            // Get input values
             const inputText = document.getElementById('inputText').value;
             const key = parseInt(document.getElementById('key').value) || 0; // Default to 0 if no key is provided
 
@@ -87,6 +119,20 @@
             document.getElementById('caesarOutput').textContent = caesarEncrypted;
             document.getElementById('base64Output').textContent = base64Encrypted;
         }
+
+        // Decrypt Text Handler
+        function decryptText() {
+            const inputText = document.getElementById('inputText').value;
+            const key = parseInt(document.getElementById('key').value) || 0; // Default to 0 if no key is provided
+
+            // Apply Caesar Cipher Decryption and Base64 Decoding
+            const caesarDecrypted = caesarDecipher(inputText, key);
+            const base64Decoded = base64Decode(inputText);
+
+            // Display decrypted results
+            document.getElementById('caesarOutput').textContent = caesarDecrypted;
+            document.getElementById('base64Output').textContent = base64Decoded;
+        }
     </script>
-  </body>
+</body>
 </html>
