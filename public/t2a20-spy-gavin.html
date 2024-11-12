@@ -33,6 +33,60 @@
     <p class="indent">Now, to avoid unsavory hackers from hacking our passwords and bank accounts, new methods had to be engineered. such as Base64 Encryption.</p>
     <br>
     <h1>>GavinTheGreat's Encryption Program:</h1>
-    <p></p>
+    <p></p><br>
+   <!-- Text Input -->
+    <label for="inputText">Enter Text:</label><br>
+    <textarea id="inputText" placeholder="Enter text here..."></textarea><br><br>
+
+    <!-- Key Input for Caesar Cipher -->
+    <label for="key">Enter Key (for Caesar Cipher):</label><br>
+    <input type="number" id="key" placeholder="Enter a number (key)" /><br><br>
+
+    <!-- Buttons for Encryption -->
+    <button onclick="encryptText()">Encrypt</button>
+
+    <!-- Output -->
+    <div class="output">
+        <h3>Encrypted Text</h3>
+        <p><strong>Caesar Cipher:</strong> <span id="caesarOutput"></span></p>
+        <p><strong>Base64:</strong> <span id="base64Output"></span></p>
+    </div>
+
+    <script>
+        // Caesar Cipher Encryption Function
+        function caesarCipher(text, shift) {
+            let result = '';
+            for (let i = 0; i < text.length; i++) {
+                let char = text[i];
+                if (char.match(/[a-zA-Z]/)) {
+                    let base = (char >= 'a' && char <= 'z') ? 'a'.charCodeAt(0) : 'A'.charCodeAt(0);
+                    result += String.fromCharCode((char.charCodeAt(0) - base + shift) % 26 + base);
+                } else {
+                    result += char; // Non-alphabetical characters remain unchanged
+                }
+            }
+            return result;
+        }
+
+        // Base64 Encoding Function
+        function base64Encode(text) {
+            return btoa(text);
+        }
+
+        // Main Encryption Handler
+        function encryptText() {
+            // Get input values
+            const inputText = document.getElementById('inputText').value;
+            const key = parseInt(document.getElementById('key').value) || 0; // Default to 0 if no key is provided
+
+            // Apply Caesar Cipher and Base64 Encoding
+            const caesarEncrypted = caesarCipher(inputText, key);
+            const base64Encrypted = base64Encode(inputText);
+
+            // Display encrypted results
+            document.getElementById('caesarOutput').textContent = caesarEncrypted;
+            document.getElementById('base64Output').textContent = base64Encrypted;
+        }
+    </script>
   </body>
 </html>
