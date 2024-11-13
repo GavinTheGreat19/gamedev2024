@@ -1,0 +1,97 @@
+<html>
+  <head>
+    <style>
+      body {
+        padding: 60;
+        text-size: 20;
+      }
+    </style>
+  </head>
+  <body>
+    <p><i>t2a23-game-template-gavin</i></p>
+    <h1>Game Template</h1>
+    <br><br><br>
+
+    <img src="smiley.png">
+    <script>
+      // declaring var
+      let coolVar = 0
+      let MyClock
+      let directionPlayerOne = "no"
+      let directionPlayerTwo = "no"
+      let myTimer01
+
+            tenSeccondClock = setInterval(() => {
+
+        speedX -= 0.1;
+        speedY += 0.1;
+
+        console.log("SpeedX:", speedX, "SpeedY:", speedY);
+
+        if (speedY > 15) {
+            clearInterval(tenSeccondClock);
+        }
+    }, 5000); // This is 5 seconds
+}
+	       // Keyhandling and stuff
+    window.addEventListener('keydown', function() {
+	let key = event.key;
+
+	if (key === 'd' || key === 'D') {
+	directionPlayerOne = "right";
+  movementPlayerOne();
+	}
+
+	if (key === 'a' || key === 'A') {
+	directionPlayerOne = "left";
+  movementPlayerOne();
+	}
+
+	if (key === 's' || key === 'S') {
+	directionPlayerOne = "down";
+  movementPlayerOne();
+	}
+	if (key === 'w' || key === 'W') {
+	directionPlayerOne = "up";
+  movementPlayerOne();
+	}
+    }
+                            
+        window.addEventListener('keyup', function() {
+	let key = event.key;
+
+	if (key === 'd' || key === 'D') {
+	directionPlayerOne = "no";
+  movementPlayerOne();
+	}
+
+	if (key === 'a' || key === 'A') {
+	directionPlayerOne = "no";
+  movementPlayerOne();
+	}
+
+	if (key === 's' || key === 'S') {
+	directionPlayerOne = "no";
+  movementPlayerOne();
+	}
+	if (key === 'w' || key === 'W') {
+	directionPlayerOne = "no";
+  movementPlayerOne();
+	}
+    }
+        function movementPlayerOne() {
+      
+      if (directionPlayerOne === "no") {
+      // cancel movement
+      } else if (directionPlayerOne  === "left") {
+      clearInterval(myTimer01)
+        myTimer01 = setInterval(function(){
+           document.getElementById('playerOne').style.left = parseInt(document.getElementById('playerOne').style.left) - 5 + 'px'
+          }, 50)
+
+    }
+    
+
+    </script>
+  </body>
+</html>
