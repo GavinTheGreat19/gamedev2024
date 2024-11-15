@@ -7,7 +7,7 @@
     	font-size: 20px;
     	text-shadow: 2px 2px 5px black;
     	font-family: "Comic Sans", "Comic Sans MS", "Comic Relief";
-    	background: url("checkerGrey.png");
+    	background: url("dirtwall.png");
     	background-repeat: repeat;
     	background-size: 100%;
       }
@@ -25,15 +25,71 @@
     <p><i>t2a23-game-template-gavin</i></p>
     <h1>The Bunny Maze!</h1>
 
-	<p><i>Use the WASD keys, and the Arrow keys to control the bunnies!</i></p>
+	<p><i>Use the WASD keys to control the bunny, and get the carrot!</i></p>
 	<input id="startButton" type=button value="Start the Game!" onclick="{gameStart();}">
-	<img id="playerOne" src="bunnyBlue.png" style="position: absolute; top: 400px; left: 150px;">
+	<img id="playerOne" src="bunnyBlue.png" style="position: absolute; top: 372px; left: 372px;">
 	<img id="playerTwo" src="bunnyRed.png" style="position: absolute; top: 600px; left: 600px;">
-	<img class="wall"   src="brickwall.png" style="position: absolute; top: 1000px; left: 1000px;">
-	<img class="wall"   src="brickwall.png" style="position: absolute; top: 872px; left: 1000px;">
-	<img class="wall"   src="brickwall.png" style="position: absolute; top: 744px; left: 1000px;">
-	<img class="wall"   src="brickwall.png" style="position: absolute; top: 616px; left: 1000px;">
-	<img class="wall"   src="brickwall.png" style="position: absolute; top: 488px; left: 1000px;">
+
+	<img class="wall" src="brickwall.png" style="position: absolute; top: 500px; left: 628px;">
+<!-- holy shit this took forever. probably a better way to do it too... -->
+<!-- Row: 628px -->
+<img class="wall" src="brickwall.png" style="position: absolute; top: 628px; left: 628px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 628px; left: 884px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 628px; left: 1012px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 628px; left: 1140px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 628px; left: 1268px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 628px; left: 1396px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 628px; left: 1524px;">
+
+<!-- Row: 756px -->
+<img class="wall" src="brickwall.png" style="position: absolute; top: 756px; left: 628px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 756px; left: 884px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 756px; left: 1524px;">
+
+<!-- Row: 884px -->
+<img class="wall" src="brickwall.png" style="position: absolute; top: 884px; left: 628px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 884px; left: 1140px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 884px; left: 1268px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 884px; left: 1524px;">
+
+<!-- Row: 1012px -->
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1012px; left: 628px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1012px; left: 756px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1012px; left: 884px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1012px; left: 1140px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1012px; left: 1268px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1012px; left: 1524px;">
+
+<!-- Row: 1140px -->
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1140px; left: 628px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1140px; left: 1140px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1140px; left: 1524px;">
+
+<!-- Row: 1268px -->
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1268px; left: 628px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1268px; left: 756px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1268px; left: 884px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1268px; left: 1012px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1268px; left: 1140px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1268px; left: 1396px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1268px; left: 1524px;">
+
+<!-- Row: 1396px -->
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1396px; left: 628px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1396px; left: 1524px;">
+
+<!-- Row: 1524px -->
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1524px; left: 628px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1524px; left: 756px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1524px; left: 884px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1524px; left: 1012px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1524px; left: 1140px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1524px; left: 1268px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1524px; left: 1396px;">
+<img class="wall" src="brickwall.png" style="position: absolute; top: 1524px; left: 1524px;">
+
+
+
 
 	<audio id="backgroundMusic" src="bunnies.mp3"></audio>
 	<audio id="winSound" src="win.mp3"></audio>
@@ -103,22 +159,22 @@ function tenSeccondInator() {
 
 	if (key === 'd' || key === 'D') {
 	document.getElementById('playerOne').style.left =
-      parseInt(document.getElementById('playerOne').style.left) + 50 + 'px';
+      parseInt(document.getElementById('playerOne').style.left) + 32 + 'px';
 	}
 
 	if (key === 'a' || key === 'A') {
 	document.getElementById('playerOne').style.left =
-      parseInt(document.getElementById('playerOne').style.left) - 50 + 'px';
+      parseInt(document.getElementById('playerOne').style.left) - 32 + 'px';
 	}
 
 	if (key === 's' || key === 'S') {
 	document.getElementById('playerOne').style.top =
-      parseInt(document.getElementById('playerOne').style.top) + 50 + 'px';
+      parseInt(document.getElementById('playerOne').style.top) + 32 + 'px';
 	}
 
 	if (key === 'w' || key === 'W') {
 	document.getElementById('playerOne').style.top =
-      parseInt(document.getElementById('playerOne').style.top) - 50 + 'px';
+      parseInt(document.getElementById('playerOne').style.top) - 32 + 'px';
 	}
 
 //Player One Movement
