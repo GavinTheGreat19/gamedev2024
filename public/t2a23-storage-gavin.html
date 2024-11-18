@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <style>
+      body {
+       padding: 60px; 
+      }
+    </style>
+  </head>
+  <body onload="{findCookies()}" onunload="{saveCookies()}">
+    <p><i>t2a22-local-storage-gavin</i></p>
+    <br>
+    <br>
+    <p>Please input text to be stored locally on your device</p>
+    <input type="text" id="textInput" value="Replace text with something cooler :D" placeholder="Input Text">
+    <br><br>
+    <input type="button" value="Save Text" onclick="{saveCookies()}"><br>
+    <input type="button" value="Load Text" onclick="{loadCookies()}"><br>
+    
+    
+    <script>
+      let myStorage = ""
+
+      function findCookies(){
+       myStorage == localStorage.getItem('myStoredText')
+      }
+
+      function loadCookies(){
+        if(myStorage != null){
+          document.getElementById('textInput').value = localStorage.getItem('cookiesFromGavin')
+        } else {
+          document.getElementByID('textInput').value = "No data detected on your device. Did you press save?"
+        }
+      }
+
+      function saveCookies(){
+        localStorage.setItem('cookiesFromGavin' , document.getElementById('textInput').value)
+      }
+    </script>
+  </body>
+</html>
