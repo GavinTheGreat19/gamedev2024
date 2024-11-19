@@ -15,7 +15,45 @@
     <br><br>
     <input type="button" value="Save Text" onclick="{saveCookies()}"><br>
     <input type="button" value="Load Text" onclick="{loadCookies()}"><br>
-    
+    <br>
+    <br>
+    <canvas id="paintCanvas" width="600" height="600" style="border: 1px solid black;"></canvas>
+
+<script>
+  const canvas = document.getElementById('paintCanvas');
+  const ctx = canvas.getContext('2d');
+
+  ctx.strokeStyle = 'green';  // Drawing color
+  ctx.lineWidth = 10;          // Line thickness
+
+  let drawing = false;
+
+  // Start drawing when mouse is pressed
+  canvas.addEventListener('mousedown', (e) => {
+      drawing = true;
+      ctx.beginPath();
+      ctx.moveTo(e.offsetX, e.offsetY);
+  });
+
+  // Draw while the mouse moves
+  canvas.addEventListener('mousemove', (e) => {
+      if (drawing) {
+          ctx.lineTo(e.offsetX, e.offsetY);
+          ctx.stroke();
+      }
+  });
+
+  // Stop drawing when mouse is released
+  canvas.addEventListener('mouseup', () => {
+      drawing = false;
+  });
+
+  // Stop drawing if the mouse leaves the canvas
+  canvas.addEventListener('mouseout', () => {
+      drawing = false;
+  });
+</script>
+
     
     <script>
       let myStorage = ""
