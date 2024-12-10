@@ -1,0 +1,172 @@
+<html>
+    <head>
+      <style>
+       body {
+    	padding: 60px;
+    	color: White;
+    	font-size: 20px;
+    	text-shadow: 2px 2px 5px black;
+    	font-family: "Comic Sans", "Comic Sans MS", "Comic Relief";
+    	background: url("brickwall.png");
+    	background-repeat: repeat;
+    	background-size: 100%;
+      }
+	      img {
+		filter: drop-shadow(2px 2px 5px black);
+	      }
+	      input {
+		filter: drop-shadow(2px 2px 5px black);
+	      }
+      </style>
+	    <title>t2a19-background-move-gavin.html</title>
+    </head>    
+      <body id="mainBody" style="background-repeat:repeat; background-size: 256px">
+        <p><i>t2a28-WASD-template-gavin</i></p>
+        <h1>Another Bunny Chase!</h1>
+	<p><i>Use the WASD keys, and the Arrow keys to control the bunnies!</i></p>
+	<input id="startButton" type=button value="Start the Game!" onclick="{gameStart();}">
+	<img id="playerOne" src="bunnyBlue.png" style="position: absolute; top: 400px; left: 150px;">
+	<img id="playerTwo" src="bunnyRed.png" style="position: absolute; top: 600px; left: 600px;">
+
+	<audio id="backgroundMusic" src="bunnies.mp3"></audio>
+	<audio id="winSound" src="win.mp3"></audio>
+	<audio id="tagSound" src="dogsound.mp3"></audio>
+
+       <script>
+let positionX = 0;
+let positionY = 0;
+let speedX = -2;
+let speedY = 1;
+let myClock;
+let tenSeccondClock;
+
+function gameStart() {
+    backGroundMover();
+    tenSeccondInator();
+    playMusic();
+}
+function backGroundMover() {
+
+    clearInterval(myClock);
+
+
+    myClock = setInterval(() => {
+        positionX += speedX;
+        positionY += speedY;
+
+        document.getElementById("mainBody").style.backgroundPosition = `${positionX}px ${positionY}px`;
+    }, 20);
+}
+let audioMusic = document.getElementById("backgroundMusic");
+	// Have to define music outside of thing for it to be a global varriable...
+ function playMusic() {
+            
+            audioMusic.play();
+
+            audioMusic.addEventListener("ended", onMusicEnd);
+	    audioMusic.addEventListener('pause', onMusicEnd);
+        }
+function onMusicEnd() {
+	let audio = document.getElementById("winSound")
+	audio.play();
+
+	audio.addEventListener("ended", gameEnder);
+}
+
+function gameEnder() {
+	window.location.reload();
+}
+
+function tenSeccondInator() {
+
+    clearInterval(tenSeccondClock);
+// This should probably work.
+    
+    tenSeccondClock = setInterval(() => {
+
+        speedX -= 0.1;
+        speedY += 0.1;
+
+        console.log("SpeedX:", speedX, "SpeedY:", speedY);
+
+        if (speedY > 15) {
+            clearInterval(tenSeccondClock);
+        }
+    }, 5000); // This is 5 seconds
+}
+	       // Keyhandling and stuff
+    window.addEventListener('keydown', function() {
+	let key = event.key;
+
+	if (key === 'd' || key === 'D') {
+	document.getElementById('playerOne').style.left =
+      parseInt(document.getElementById('playerOne').style.left) + 50 + 'px';
+	}
+
+	if (key === 'a' || key === 'A') {
+	document.getElementById('playerOne').style.left =
+      parseInt(document.getElementById('playerOne').style.left) - 50 + 'px';
+	}
+
+	if (key === 's' || key === 'S') {
+	document.getElementById('playerOne').style.top =
+      parseInt(document.getElementById('playerOne').style.top) + 50 + 'px';
+	}
+
+	if (key === 'w' || key === 'W') {
+	document.getElementById('playerOne').style.top =
+      parseInt(document.getElementById('playerOne').style.top) - 50 + 'px';
+	}
+
+//Player One Movement
+//Player Two Movement
+
+ 		if (key === 'ArrowRight') {
+	document.getElementById('playerTwo').style.left =
+      parseInt(document.getElementById('playerTwo').style.left) + 50 + 'px';
+	}
+
+	if (key === 'ArrowLeft') {
+	document.getElementById('playerTwo').style.left =
+      parseInt(document.getElementById('playerTwo').style.left) - 50 + 'px';
+	}
+
+	if (key === 'ArrowDown') {
+	document.getElementById('playerTwo').style.top =
+      parseInt(document.getElementById('playerTwo').style.top) + 50 + 'px';
+	}
+
+	if (key === 'ArrowUp') {
+	document.getElementById('playerTwo').style.top =
+      parseInt(document.getElementById('playerTwo').style.top) - 50 + 'px';
+	}
+//Colision Handling
+
+           if (isColliding()) {
+                // You can handle the collision here, e.g., play a sound, display a message, etc.
+                document.getElementById("tagSound").play();
+                audioMusic.pause();
+            }
+
+    })
+
+	        function isColliding() {
+            let playerOne = document.getElementById('playerOne');
+            let playerTwo = document.getElementById('playerTwo');
+
+            // shapes of both players
+            let rect1 = playerOne.getBoundingClientRect();
+            let rect2 = playerTwo.getBoundingClientRect();
+
+            // idk I stiole this part of the code from the internet (EVERYTHING ELSE IS GAVIN MADE)
+            let horizontalOverlap = rect1.right > rect2.left && rect1.left < rect2.right;
+            let verticalOverlap = rect1.bottom > rect2.top && rect1.top < rect2.bottom;
+
+            return horizontalOverlap && verticalOverlap;
+        }
+
+       </script>
+
+      </body>
+      
+</html>
