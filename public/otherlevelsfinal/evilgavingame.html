@@ -112,6 +112,17 @@
                     // Increasing Score! -G
                     score += 1;
                     document.getElementById('scoreDisplay').innerText = `Points: ${score}`;
+		    if (score => 100) {
+
+		
+		let audioWin = document.getElementById("winnersound");
+          	audioWin.play();
+			    
+		setTimeout(function(){
+                window.location.replace('gavin-level-three.html');
+            	}, 2000)
+
+		    }	
                 }
             });
         });
