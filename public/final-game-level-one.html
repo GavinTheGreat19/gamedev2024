@@ -179,14 +179,15 @@ function tenSeccondInator() {
 
 //Player One Movement
 //Check All Colsions Code
-	           if (isColliding()) {
+	           if (isColliding()){ 
 		audioMusic.pause();
 			   
                	let audio = document.getElementById("winSound")
 		audio.play();
 
-		audio.addEventListener("ended", gameEnder);
-        
+		setTimeout(function() {
+	window.location.replace('otherlevelsfinal/gavin-level-one-for-school.html');
+  	  }, 5000);
             }
 	               if (isCollidingWall()) {
 		audioMusic.pause();
