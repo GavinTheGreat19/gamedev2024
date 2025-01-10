@@ -1,0 +1,132 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-image: url('floor2.png');
+                font-family: 'Times New Roman', Times, serif;
+                color: white;
+                padding: 20px;
+                text-shadow: 2px 2px 10px black;
+            }
+
+            #player {
+                filter: drop-shadow(0px 0px 4px grey);
+            }
+
+            #bunnyBlue {
+                filter: drop-shadow(0px 0px 6px cyan);
+            }
+            
+            #speech {
+                text-shadow: 0px 0px 3px cyan;
+                font-size: x-large;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Gavin's Level One</h1>
+        <p><i>project name</i></p>
+        <img id="player" src="FrontIdle.gif" style="position: absolute; top: 150px; left: 150px;">
+        <img id="bunnyBlue" src="bunnyBlue.png" style="position: absolute; top:200px; left: 400px;">
+
+        <p id="speech" style="position: absolute; top:350px; left: 350px;">""</p>
+        
+
+        <input type="button", value="Sure!", style="position: absolute; top: 350px; left: 250px;">
+
+        <script>
+            let player = document.getElementById("player");
+            let isMovingRight = false;
+            let isMovingDown  = false;
+            let isMovingLeft  = false;
+            let isMovingUp    = false;
+
+            let hasMoved = false;
+
+
+            function moveRight() {
+                player.style.left = parseInt(player.style.left) + 2 + "px"
+                if (isMovingRight == true){
+                    setTimeout(moveRight, 10);
+                } 
+            }
+            
+            function moveLeft() {
+                player.style.left = parseInt(player.style.left) - 2 + "px"
+                if (isMovingLeft == true){
+                    setTimeout(moveLeft, 10);
+                }
+            }
+
+            function moveUp() {
+                player.style.top = parseInt(player.style.top) - 2 + "px"
+                if (isMovingUp == true){
+                    setTimeout(moveUp, 10);
+                }
+            }
+
+            function moveDown() {
+            player.style.top = parseInt(player.style.top) + 2 + "px"
+            if (isMovingDown == true){
+                    setTimeout(moveDown, 10);
+                }
+            }
+
+            window.addEventListener("keydown", function() {
+            let key = event.key
+            hasMoved = true;
+
+            if ((key == 'd' || key == 'D') && isMovingRight == false) {
+                isMovingRight = true;
+                player.src = "RightWalk.gif"
+                moveRight();
+            }
+
+            if ((key == 'a' || key == 'A') && isMovingLeft == false) {
+                isMovingLeft = true;
+                player.src = "LeftWalk.gif"
+                moveLeft();
+            }
+
+            if ((key == 'w' || key == 'W') && isMovingUp == false) {
+                isMovingUp = true;
+                player.src = "Back.png"
+                moveUp();
+            }
+            
+            if ((key == 's' || key == 'S') && isMovingDown == false) {
+                isMovingDown = true;
+                player.src = "FrontWalk.gif"
+                moveDown();
+            }
+
+        })
+
+            window.addEventListener("keyup", function() {
+            let key = event.key
+
+
+            if (key == 'd' || key == 'D') {
+                isMovingRight = false;
+                player.src = "RightIdle.gif"
+            }
+
+            if (key == 'a' || key == 'A') {
+                isMovingLeft = false
+                player.src = "LeftIdle.gif"
+            }
+
+            if (key == 's' || key == 'S') {
+                isMovingDown = false
+                player.src = "FrontIdle.gif"
+            }
+
+            if (key == 'w' || key == 'W') {
+                isMovingUp = false
+                player.src = "Back.png"
+            }
+
+            })
+        </script>
+    </body>
+</html>
